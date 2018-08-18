@@ -1,0 +1,25 @@
+.Workspace {
+  min-height: 900px;
+  width: 100%;
+  background-color: rgb(255, 247, 235);
+  border-radius: 10px;
+  padding: 90px 10px 20px 20px;
+}
+
+.Note {
+  margin: auto;
+  margin-top: 5px;
+}
+
+@media (min-width: 500px) {
+  .Workspace {
+    border-radius: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+  .Note {
+    margin: 5px;
+  }
+}

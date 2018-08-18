@@ -1,0 +1,12 @@
+.Sidebar {
+  width: 200px;
+  min-height: 500px;
+  background-color: rgba(229, 253, 229, 0.5);
+  padding: 10px;
+}
+
+@media (min-width: 700px) {
+  .Sidebar {
+    min-height: 700px;
+  }
+}

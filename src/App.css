@@ -1,0 +1,56 @@
+/* Позиционирование и кастомизация левого сайдбара панели */
+.LeftSidebar {
+  position: fixed;
+  top: 100px;
+  margin-left: -180px;
+  border-radius: 0 15px 15px 0;
+  background-color: rgba(236, 195, 195, 0.9);
+}
+
+/* Позиционирование и кастомизация левого сайдбара панели */
+.RightSidebar {
+  position: fixed;
+  top: 100px;
+  right: -160px;
+  width: 50%;
+  border-radius: 15px 0px 0px 15px;
+  background-color: lightcyan;
+}
+
+/* Позиционирование и кастомизация навигационной панели */
+.Nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+@media (min-width: 500px) {
+  .Nav { /* Позиционирование и кастомизация навигационной панели */
+    justify-content: center;
+    min-height: 42px;
+    width: 900px;
+    min-width: 900px;
+    position: fixed;
+    top: 4px;
+    left: 20%;
+    right: 20%;
+  }
+
+  .LeftSidebar {
+    top: 100px;
+    margin-left: 0px;
+    border-radius: 0 5px 5px 0;
+    width: 250px;
+  }
+
+  .RightSidebar {
+    width: 15%;
+    left: 80%;
+    border-radius: 5px;
+  }
+
+  .Workspace {
+    width: 60%;
+    margin: 100px 10px 50px 273px;
+  }
+}

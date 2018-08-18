@@ -1,0 +1,22 @@
+.FullNote {
+  margin: auto;
+  width: 270px;
+  min-height: 500px;
+  border-right: 1px solid rgb(240, 227, 220);
+  border-bottom: 1px solid rgb(240, 227, 220);
+  background-color: rgb(243, 218, 184);
+  border-radius: 5px 15px 5px 5px;
+  padding: 3px;
+  background: radial-gradient(
+    circle at top right,  
+  rgb(255, 247, 235),
+  rgb(243, 218, 184));
+}
+
+@media (min-width: 500px) {
+  .FullNote {
+    margin-top: 0;
+    min-height: 1001px;
+    width: 100%;
+  }
+}
