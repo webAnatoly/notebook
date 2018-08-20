@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '../Button/Button';
-
 import styles from './Nav.css';
 
 const Nav = ({ customazeStyles }) => {
@@ -12,7 +10,7 @@ const Nav = ({ customazeStyles }) => {
   ];
   return (
     <div className={css.join(' ')}>
-      <Button htmlType="button" customazeStyles={styles.Button}>Add Note</Button>
+      Nav Panel
     </div>
   );
 };

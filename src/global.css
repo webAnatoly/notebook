@@ -2,7 +2,22 @@
 
 html {
   font-size: 14px;
-  background-color: rgb(245, 245, 245);
+  background-color: #727cc8;
+  background: linear-gradient(-38deg, #0e366e,#c4c5f6,#0e366e);
+  
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  
+  /* Makes the image fixed in the viewport so that it doesn't move when 
+     the content height is greater than the image height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based on its container's size */
+  background-size: cover;
+  
 }
 
 @font-face {
@@ -20,4 +35,7 @@ html {
 }
 
 
-body { font-family: Proxima Nova, Arial, sans-serif;}
+body {
+  font-family: Proxima Nova, Arial, sans-serif;
+  color: #78829d;
+}

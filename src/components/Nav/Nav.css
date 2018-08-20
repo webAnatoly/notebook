@@ -4,14 +4,8 @@
 Таким образом базовый компонент можно использовать много раз, передавая ему нужные стили. */
 .Nav {
   width: 100%;
-  min-height: 50px;
-  background-color: rgb(116, 178, 240);
-  border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  padding: 5px;
+  height: 45px;
+  background-color: #2f364a;
 }
 
 
@@ -28,10 +22,9 @@
   height: 40px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 769px) {
   .Nav {
     justify-content: center;
-    min-height: 42px;
     padding: 5px;
   }
   .Button {

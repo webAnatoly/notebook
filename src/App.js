@@ -2,35 +2,39 @@ import React from 'react';
 
 import Nav from './components/Nav/Nav';
 import Sidebar from './components/Sidebar/Sidebar';
+import Wrapper from './components/Wrapper/Wrapper';
+import Container from './components/Container/Container';
 import Workspace from './components/Workspace/Workspace';
-import ShowNotes from './components/ShowNotes/ShowNotes';
 
 import css from './App.css';
+import ShowNotes from './components/ShowNotes/ShowNotes';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showFullNote: false,
+      isFullNote: false,
     };
   }
 
-  showFullNoteHandler = () => {
-    this.setState({ showFullNote: true });
-  }
-
   render() {
-    const { showFullNote } = this.state;
-    const leftSidebar = (<Sidebar customazeStyles={css.LeftSidebar} />);
-    const rightSidebar = (<Sidebar customazeStyles={css.RightSidebar} />);
+    const { isFullNote } = this.state;
     return (
-      <div>
-        <Nav customazeStyles={css.Nav} />
-        {leftSidebar}
-        {rightSidebar}
-        <Workspace customazeStyles={css.Workspace}>
-          <ShowNotes fullNote={showFullNote} showFullNote={this.showFullNoteHandler} />
-        </Workspace>
+      <div className={css.App}>
+        <Nav customazeStyles={css.Nav_Top} />
+        <Sidebar customazeStyles={css.Sidebar_Left} />
+        <Nav customazeStyles={css.Nav_Bottom} />
+        <Wrapper customizeStyles={css.Wrapper_mainArea}>
+          <Container customizeStyles={css.Container_topRow}>
+            Browse All Your Entries
+          </Container>
+          <Container customizeStyles={css.Container_secondRow}>
+            secondRowContainer
+          </Container>
+          <Workspace customazeStyles={css.Workspace_mainWorkspace}>
+            <ShowNotes isFullNote={isFullNote} />
+          </Workspace>
+        </Wrapper>
       </div>
     );
   }
