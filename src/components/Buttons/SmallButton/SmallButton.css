@@ -1,0 +1,15 @@
+.SmallButton {
+  width: 72px;
+  height: 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  background-color: transparent;
+  color: #8c97b2;
+}
+
+.SmallButton_choosed {
+  background-color: #97b3ce;
+  color: white;
+}
+
+

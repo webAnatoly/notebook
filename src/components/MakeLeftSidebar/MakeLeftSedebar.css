@@ -1,15 +1,15 @@
+/* mobile first styles */
 .firstSection,
 .secondSection,
 .thirdSection,
 .fourthSection {
   background-color: #1f2637;
   width: 100%;
+  padding: 0;
 }
 
 .firstSection {
-  height: 114px;
-  border-bottom: 1px solid #141824;
-  margin-bottom: 4px;
+  display: none;
 }
 
 .secondSection {
@@ -30,4 +30,16 @@
   height: 348px;
   border-top: 1px solid #282f41;
   margin-bottom: 0px;
+}
+
+/* Styles for PC */
+@media (min-width: 769px) {
+  .firstSection {
+    height: 114px;
+    border-bottom: 1px solid #141824;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

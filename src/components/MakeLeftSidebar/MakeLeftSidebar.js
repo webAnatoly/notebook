@@ -4,12 +4,18 @@ import React from 'react';
 import css from './MakeLeftSedebar.css';
 
 import Container from '../Container/Container';
+import LargeButton from '../Buttons/LargeButton/LargeButton';
+import SmallButton from '../Buttons/SmallButton/SmallButton';
 
 const MakeLeftSidebar = (props) => {
   return (
     <div>
-      <Container customizeStyles={css.firstSection} />
-      <Container customizeStyles={css.secondSection} />
+      <Container customizeStyles={css.firstSection}>
+        <LargeButton>add note</LargeButton>
+      </Container>
+      <Container customizeStyles={css.secondSection}>
+        <SmallButton />
+      </Container>
       <Container customizeStyles={css.thirdSection} />
       <Container customizeStyles={css.fourthSection} />
     </div>
