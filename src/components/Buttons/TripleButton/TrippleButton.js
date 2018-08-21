@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import s from './TripleButton.css';
 
-const TrippleButton = ({ showLeftSidebar }) => {
-  return (
+const TrippleButton = ({ showLeftSidebar }) => (
+  (
     <div
       className={s.TrippleButton}
       onClick={showLeftSidebar}
@@ -16,8 +16,8 @@ const TrippleButton = ({ showLeftSidebar }) => {
       <div className={[s.line, s.secondLine].join(' ')} />
       <div className={[s.line, s.thirdLine].join(' ')} />
     </div>
-  );
-};
+  )
+);
 
 TrippleButton.propTypes = {
   showLeftSidebar: PropTypes.func.isRequired,

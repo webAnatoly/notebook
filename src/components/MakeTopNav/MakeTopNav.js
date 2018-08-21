@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import s from './MakeTopNav.css';
 import TrippleButton from '../Buttons/TripleButton/TrippleButton';
 
-const MakeTopNav = ({ showLeftSidebar }) => {
-  return (
+const MakeTopNav = ({ showLeftSidebar }) => (
+  (
     <div className={s.MakeTopNav}>
       <div className={s.mobileButton}>
         <TrippleButton showLeftSidebar={showLeftSidebar} />
@@ -15,8 +15,8 @@ const MakeTopNav = ({ showLeftSidebar }) => {
       <div className={s.support}>our support</div>
       <div className={s.userProfile}>john doe</div>
     </div>
-  );
-};
+  )
+);
 
 MakeTopNav.propTypes = {
   showLeftSidebar: PropTypes.func.isRequired,
