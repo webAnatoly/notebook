@@ -7,6 +7,7 @@ import Wrapper from './components/Wrapper/Wrapper';
 import Container from './components/Container/Container';
 import Workspace from './components/Workspace/Workspace';
 import MakeLeftSidebar from './components/MakeLeftSidebar/MakeLeftSidebar';
+import MakeTopNav from './components/MakeTopNav/MakeTopNav';
 
 import css from './App.css';
 import ShowNotes from './components/ShowNotes/ShowNotes';
@@ -27,7 +28,9 @@ export default class App extends React.Component {
     const { isFullNote } = this.state;
     return (
       <div className={css.App}>
-        <Nav customazeStyles={css.Nav_Top} />
+        <Nav customazeStyles={css.Nav_Top}>
+          <MakeTopNav />
+        </Nav>
         <Sidebar customazeStyles={css.Sidebar_Left}>
           <MakeLeftSidebar />
         </Sidebar>

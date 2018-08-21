@@ -1,0 +1,26 @@
+/* mobile */
+.TrippleButton {
+  width: 8vh;
+  height: 8vh;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh 1.5vh;
+}
+
+.line {
+  width: 10vw;
+  height: 0.5vh;
+  margin: auto;
+  border-radius: 2px;
+  background-color: #78829d;
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .TrippleButton {
+    display: none;
+  }
+}

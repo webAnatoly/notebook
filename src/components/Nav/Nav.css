@@ -15,20 +15,10 @@
 а в этом компоненте, т.е. там где мы используем эту кнопку мы задаем ей стили позиционирования
 и прочею кастомизацию и передаем эти стили компоненту Button в пропсах.
 */
-.Button {
-  display: block;
-  margin: 5px 2px;
-  padding: 5px;
-  height: 40px;
-}
 
 @media (min-width: 769px) {
   .Nav {
     justify-content: center;
-    padding: 5px;
-  }
-  .Button {
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 0px;
   }
 }

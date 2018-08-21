@@ -5,8 +5,8 @@
   border-radius: 2px;
   outline: 0;
   background-color: lightblue;
-  min-width: 100px;
-  min-height: 30px;
+  width: 55px;
+  height: 45px;
   text-align: center;
   /* [TO DO] добавить стили убирающие рамку вокруг кнопки при фокусировании и подсветку красным */
 }
