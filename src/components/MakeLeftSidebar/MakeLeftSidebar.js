@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Aux from '../../hoc/Aux/Aux';
 import Container from '../Container/Container';
@@ -9,10 +9,11 @@ import SmallButton from '../Buttons/SmallButton/SmallButton';
 
 import css from './MakeLeftSidebar.css';
 
-const MakeLeftSidebar = (props) => {
-  const sidebarCSS = [
-    css.Sidebar_Left,
-  ];
+const MakeLeftSidebar = ({ show }) => {
+  let sidebarCSS = [css.Sidebar_Left, css.hidden];
+  if (show) {
+    sidebarCSS = [css.Sidebar_Left, css.showed];
+  }
   return (
     <Sidebar customazeStyles={sidebarCSS.join(' ')}>
       <Aux>
@@ -29,9 +30,9 @@ const MakeLeftSidebar = (props) => {
   );
 };
 
-// MakeLeftSidebar.propTypes = {
-
-// };
+MakeLeftSidebar.propTypes = {
+  show: PropTypes.bool.isRequired,
+};
 
 // MakeLeftSidebar.defaultProps = {
 

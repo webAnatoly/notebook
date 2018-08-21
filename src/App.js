@@ -2,7 +2,6 @@ import React from 'react';
 
 import Aux from './hoc/Aux/Aux';
 import Nav from './components/Nav/Nav';
-import Sidebar from './components/Sidebar/Sidebar';
 import Wrapper from './components/Wrapper/Wrapper';
 import Container from './components/Container/Container';
 import Workspace from './components/Workspace/Workspace';
@@ -17,7 +16,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isFullNote: false,
-      showLeftSitebar: false,
+      isLeftSidebarVisible: false,
     };
   }
 
@@ -25,14 +24,18 @@ export default class App extends React.Component {
     this.setState({ isFullNote: true });
   }
 
+  showLeftSidebar = () => {
+    this.setState(prevState => ({ isLeftSidebarVisible: !prevState.isLeftSidebarVisible }));
+  }
+
   render() {
-    const { isFullNote } = this.state;
+    const { isFullNote, isLeftSidebarVisible } = this.state;
     return (
       <div className={css.App}>
         <Nav customazeStyles={css.Nav_Top}>
-          <MakeTopNav />
+          <MakeTopNav showLeftSidebar={this.showLeftSidebar} />
         </Nav>
-        <MakeLeftSidebar />
+        <MakeLeftSidebar show={isLeftSidebarVisible} />
         <Nav customazeStyles={css.Nav_Bottom} />
         <Wrapper customizeStyles={css.Wrapper_mainArea}>
           <Aux>

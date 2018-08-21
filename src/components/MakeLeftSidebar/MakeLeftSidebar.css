@@ -10,8 +10,11 @@
   background-color: #19202e;
 }
 
-.Sidebar_Left_hidden {
+.hidden {
   left: -198px;
+}
+.showed {
+  left: 0px;
 }
 
 /* sidebar sections */
