@@ -16,7 +16,7 @@ const Container = ({ customizeStyles, children }) => {
 
 Container.propTypes = {
   customizeStyles: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 
 Container.defaultProps = {

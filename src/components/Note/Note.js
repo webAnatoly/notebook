@@ -26,6 +26,7 @@ const Note = ({ customizeStyles, showFullNote }) => {
         role="button"
         tabIndex="0"
         onDoubleClick={showFullNote}
+        onTouchStart={showFullNote}
       />
       <div>Note</div>
     </div>

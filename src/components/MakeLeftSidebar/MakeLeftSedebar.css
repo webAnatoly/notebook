@@ -1,0 +1,33 @@
+.firstSection,
+.secondSection,
+.thirdSection,
+.fourthSection {
+  background-color: #1f2637;
+  width: 100%;
+}
+
+.firstSection {
+  height: 114px;
+  border-bottom: 1px solid #141824;
+  margin-bottom: 4px;
+}
+
+.secondSection {
+  height: 242px;
+  border-top: 1px solid #282f41;
+  border-bottom: 1px solid #141824;
+  margin-bottom: 4px;
+}
+
+.thirdSection {
+  height: 183px;
+  border-top: 1px solid #282f41;
+  border-bottom: 1px solid #141824;
+  margin-bottom: 4px;
+}
+
+.fourthSection {
+  height: 348px;
+  border-top: 1px solid #282f41;
+  margin-bottom: 0px;
+}

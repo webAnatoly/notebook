@@ -1,7 +1,8 @@
+/* mobile first */
 .FullNote {
   margin: auto;
-  width: 270px;
-  min-height: 500px;
+  width: 290px;
+  min-height: 65vh;
   border-right: 1px solid rgb(240, 227, 220);
   border-bottom: 1px solid rgb(240, 227, 220);
   background-color: rgb(243, 218, 184);
@@ -13,10 +14,19 @@
   rgb(243, 218, 184));
 }
 
+/* Позиционирование и кастомизация маленькой заметки (для мобильной версии) */
+.Node_Small {
+  margin: auto;
+}
+
+/* PC */
 @media (min-width: 769px) {
   .FullNote {
     margin-top: 0;
-    min-height: 1001px;
-    width: 100%;
+    min-height: 720px;
+    width: 1050px;
+  }
+  .Node_Small {
+    margin: 0px 10px 10px 0px;
   }
 }

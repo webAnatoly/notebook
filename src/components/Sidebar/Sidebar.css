@@ -3,6 +3,7 @@
   background-color:transparent;
   padding: 0px;
   margin: 0px;
+  overflow: auto;
 }
 
 @media (min-width: 700px) {

@@ -16,7 +16,7 @@ const Wrapper = ({ customizeStyles, children }) => {
 
 Wrapper.propTypes = {
   customizeStyles: PropTypes.string,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 Wrapper.defaultProps = {
