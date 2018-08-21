@@ -1,4 +1,20 @@
 /* mobile first styles */
+
+/* Позиционирование и кастомизация левого сайдбара (mobile_first) */
+.Sidebar_Left {
+  z-index: 1;
+  position: absolute;
+  top: 8vh;
+  height: 84vh;
+  border-right: 3px solid lightblue;
+  background-color: #19202e;
+}
+
+.Sidebar_Left_hidden {
+  left: -198px;
+}
+
+/* sidebar sections */
 .firstSection,
 .secondSection,
 .thirdSection,
@@ -34,6 +50,12 @@
 
 /* Styles for PC */
 @media (min-width: 769px) {
+  .Sidebar_Left {
+    top: 45px;
+    left: 0px;
+    height: 900px;
+    border: none;
+  }
   .firstSection {
     height: 114px;
     border-bottom: 1px solid #141824;

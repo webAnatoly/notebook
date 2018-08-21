@@ -17,6 +17,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isFullNote: false,
+      showLeftSitebar: false,
     };
   }
 
@@ -31,9 +32,7 @@ export default class App extends React.Component {
         <Nav customazeStyles={css.Nav_Top}>
           <MakeTopNav />
         </Nav>
-        <Sidebar customazeStyles={css.Sidebar_Left}>
-          <MakeLeftSidebar />
-        </Sidebar>
+        <MakeLeftSidebar />
         <Nav customazeStyles={css.Nav_Bottom} />
         <Wrapper customizeStyles={css.Wrapper_mainArea}>
           <Aux>
