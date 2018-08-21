@@ -34,14 +34,21 @@
   left: 0;
 }
 
-.Container_topRow {
+.topRow,
+.secondRow {
+  padding-left: 25px;
+}
+
+.topRow {
   width: 100%;
   height: 7.1vh;
   border-bottom: 1px solid rgb(218, 223, 234);
   background-color: #eef1f7;
+  font-size: 1.2rem;
+  text-transform: capitalize;
 }
 
-.Container_secondRow {
+.secondRow {
   width: 100%;
   height: 5vh;
   border-bottom: 1px solid rgb(218, 223, 234);
@@ -74,10 +81,11 @@
     width: 1120px;
     height: 900px;
   }
-  .Container_topRow {
+  .topRow {
     height: 71px;
+    font-size: 22px;
   }
-  .Container_secondRow {
+  .secondRow {
     height: 50px;
   }
   .Workspace_mainWorkspace {

@@ -1,12 +1,10 @@
 import React from 'react';
 
-import Aux from './hoc/Aux/Aux';
 import Nav from './components/Nav/Nav';
-import Wrapper from './components/Wrapper/Wrapper';
-import Container from './components/Container/Container';
 import Workspace from './components/Workspace/Workspace';
 import MakeLeftSidebar from './components/MakeLeftSidebar/MakeLeftSidebar';
 import MakeTopNav from './components/MakeTopNav/MakeTopNav';
+import Button from './components/Buttons/Button/Button';
 
 import css from './App.css';
 import ShowNotes from './components/ShowNotes/ShowNotes';
@@ -37,19 +35,18 @@ export default class App extends React.Component {
         </Nav>
         <MakeLeftSidebar show={isLeftSidebarVisible} />
         <Nav customazeStyles={css.Nav_Bottom} />
-        <Wrapper customizeStyles={css.Wrapper_mainArea}>
-          <Aux>
-            <Container customizeStyles={css.Container_topRow}>
-              Browse All Your Entries
-            </Container>
-            <Container customizeStyles={css.Container_secondRow}>
-              secondRowContainer
-            </Container>
-            <Workspace customazeStyles={css.Workspace_mainWorkspace}>
-              <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
-            </Workspace>
-          </Aux>
-        </Wrapper>
+        <div className={css.Wrapper_mainArea}>
+          <div className={css.topRow}>
+            browse all your entries
+            <Button />
+          </div>
+          <div className={css.secondRow}>
+            secondRowContainer
+          </div>
+          <Workspace customazeStyles={css.Workspace_mainWorkspace}>
+            <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
+          </Workspace>
+        </div>
       </div>
     );
   }

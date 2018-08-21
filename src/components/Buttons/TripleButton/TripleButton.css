@@ -2,12 +2,12 @@
 .TrippleButton {
   width: 8vh;
   height: 8vh;
-  border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 2vh 1.5vh;
+  outline: 0;
 }
 
 .line {
