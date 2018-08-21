@@ -40,6 +40,7 @@
 }
 
 .topRow {
+  position: relative;
   width: 100%;
   height: 7.1vh;
   border-bottom: 1px solid rgb(218, 223, 234);
@@ -58,6 +59,34 @@
 .Workspace_mainWorkspace {
   width: 100%;
   height: 71.9vh;
+}
+
+/* Позиционирование и кастомизация кноки "добавит запись" в мобильной версии (mobile_first) */
+.mobileAddEntryButton {
+  position: absolute;
+  top: 0.4vh;
+  right: 0.8vw;
+  height: 6vh;
+  width: 40%;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Позиционирование и кастомизация кноки "Смотреть все записи" в мобильной версии (mobile_first) */
+.browseAllEntriesButton {
+  position: absolute;
+  background-color: transparent;
+  color: #78829d;
+  top: 0.4vh;
+  left: -1vw;
+  height: 6vh;
+  width: 60vw;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Стили для настольного ПК */
@@ -91,5 +120,16 @@
   .Workspace_mainWorkspace {
     width: 100%;
     height: 778px;
+  }
+  .mobileAddEntryButton, /* скрыть показ мобильных кнопок в PC версии */
+  .mobileBrowseAllEntries {
+    display: none; 
+  }
+  /* Позиционирование и кастомизация кноки "Смотреть все записи" в PC версии */
+  .browseAllEntriesButton {
+    top: 10px;
+    left: -14px;
+    height: 6vh;
+    width: 300px;
   }
 }

@@ -4,7 +4,8 @@
   margin: 0;
   border-radius: 2px;
   outline: 0;
-  background-color: lightblue;
+  background-color: #f2795a;
+  color: white;
   width: 55px;
   height: 45px;
   text-align: center;
@@ -18,5 +19,5 @@
 
 @keyframes clicked {
   0% {background-color: rgb(188, 235, 209);}
-  100% {background-color: lightblue;}
+  100% {background-color: #f2795a;}
 }

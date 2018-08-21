@@ -37,8 +37,8 @@ export default class App extends React.Component {
         <Nav customazeStyles={css.Nav_Bottom} />
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
-            browse all your entries
-            <Button />
+            <Button customazeStyles={css.mobileAddEntryButton}>add note</Button>
+            <Button customazeStyles={css.browseAllEntriesButton}>browse all your entries</Button>
           </div>
           <div className={css.secondRow}>
             secondRowContainer
