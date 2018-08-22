@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import s from './MakeTopNav.css';
 import TrippleButton from '../Buttons/TripleButton/TrippleButton';
+import UserProfile from '../UserProfile/UserProfile';
 
 const MakeTopNav = ({ showLeftSidebar }) => (
   (
@@ -10,10 +11,10 @@ const MakeTopNav = ({ showLeftSidebar }) => (
       <div>
         <TrippleButton showLeftSidebar={showLeftSidebar} />
       </div>
-      <div className={s.appLogo}>logo</div>
-      <div className={s.helpCenter}>help center</div>
-      <div className={s.support}>our support</div>
-      <div className={s.userProfile}>john doe</div>
+      <div className={s.logoSection}>MyNotebookApp</div>
+      <div className={s.helpSection}>help center</div>
+      <div className={s.supportSection}>our support</div>
+      <UserProfile customizeStyles={s.userProfileSection} />
     </div>
   )
 );

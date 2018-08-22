@@ -1,20 +1,51 @@
+/* mobile first */
 .MakeTopNav {
   width: 100%;
   height: 100%;
 }
 
+/* Позиционирование компонента <UserProfile /> */
+.userProfileSection {
+  display: inline-block;
+  position: absolute;
+  top: 0px; 
+  right: 0px;
+  border-top-right-radius: 7px;
+}
+
+/* PC */
 @media (min-width: 769px) {
   .MakeTopNav {
     position: relative;
   }
-  .mobileButton,
-  .appLogo,
-  .helpCenter,
-  .support,
-  .userProfile {
+  .logoSection,
+  .helpSection,
+  .supportSection {
     display: inline-block;
-    width: 20%;
+    position: absolute;
     height: 100%;
-    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  .logoSection {
+    width: 120px;
+    left: 600px;
+  }
+
+  .helpSection,
+  .supportSection {
+    width: 100px;
+  }
+  .supportSection {
+    width: 100px;
+    right: 158px;
+  }
+  .helpSection {
+    width: 100px;
+    right: 258px;
   }
 }

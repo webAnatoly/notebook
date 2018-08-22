@@ -1,0 +1,30 @@
+/* mobile first */
+.RoundButton {
+  width: 11px;
+  height: 11px;
+  background-color: white;
+  position: relative;
+}
+
+.firstLine,
+.secondLine {
+  position: absolute;
+  width: 2px;
+  height: 5px;
+  background-color: #15a4fa;
+}
+
+.fitstLine {
+  rotate: 45deg;
+}
+
+.secondLine {
+  rotate: -45deg;
+}
+
+.svgIcon {
+  border: 1px solid red;
+  position: absolute;
+  right: 24px;
+  top: 0px;
+}

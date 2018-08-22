@@ -1,0 +1,14 @@
+/* mobile first */
+.UserProfile {
+  height: 100%;
+  width: 50vw; /*[TO DO] переделать в единицы vw*/
+  background-color: #15a4fa;
+  color: white;
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .UserProfile {
+    width: 158px;
+  }
+}
