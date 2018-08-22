@@ -7,7 +7,7 @@ import TrippleButton from '../Buttons/TripleButton/TrippleButton';
 const MakeTopNav = ({ showLeftSidebar }) => (
   (
     <div className={s.MakeTopNav}>
-      <div className={s.mobileButton}>
+      <div>
         <TrippleButton showLeftSidebar={showLeftSidebar} />
       </div>
       <div className={s.appLogo}>logo</div>
