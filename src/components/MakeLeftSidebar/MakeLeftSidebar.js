@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Aux from '../../hoc/Aux/Aux';
-import Container from '../Container/Container';
 import Sidebar from '../Sidebar/Sidebar';
 import LargeButton from '../Buttons/LargeButton/LargeButton';
 import SmallButton from '../Buttons/SmallButton/SmallButton';
@@ -17,14 +16,14 @@ const MakeLeftSidebar = ({ show }) => {
   return (
     <Sidebar customazeStyles={sidebarCSS.join(' ')}>
       <Aux>
-        <Container customizeStyles={css.firstSection}>
+        <div className={css.firstSection}>
           <LargeButton>add note</LargeButton>
-        </Container>
-        <Container customizeStyles={css.secondSection}>
+        </div>
+        <div className={css.secondSection}>
           <SmallButton />
-        </Container>
-        <Container customizeStyles={css.thirdSection} />
-        <Container customizeStyles={css.fourthSection} />
+        </div>
+        <div className={css.thirdSection} />
+        <div className={css.fourthSection} />
       </Aux>
     </Sidebar>
   );
