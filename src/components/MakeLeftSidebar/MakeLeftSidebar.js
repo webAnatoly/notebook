@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Aux from '../../hoc/Aux/Aux';
 import Sidebar from '../Sidebar/Sidebar';
 import LargeButton from '../Buttons/LargeButton/LargeButton';
-import SmallButton from '../Buttons/SmallButton/SmallButton';
+import Button from '../Buttons/Button/Button';
 
 import css from './MakeLeftSidebar.css';
 
@@ -18,11 +18,24 @@ const MakeLeftSidebar = ({ show }) => {
       <Aux>
         <div className={css.firstSection}>
           <LargeButton>add note</LargeButton>
+          <div className={css.line} />
         </div>
         <div className={css.secondSection}>
-          <SmallButton />
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <div className={css.line} />
         </div>
-        <div className={css.thirdSection} />
+        <div className={css.thirdSection}>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <Button customazeStyles={css.Button}>lorem ipsum</Button>
+          <div className={css.line} />
+        </div>
         <div className={css.fourthSection} />
       </Aux>
     </Sidebar>

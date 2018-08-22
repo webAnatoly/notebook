@@ -11,6 +11,22 @@
   transition: left linear 0.2s;
 }
 
+/* Позиционирование и кастомизация кнопки из второй секции в левом сайдбаре (mobile_first) */
+.Button {
+  background-color: transparent;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 38px;
+  color: #78829d;
+  font-size: 0.92rem;
+  text-transform: capitalize;
+}
+
+.Button:hover {
+  background-color: #15a4fa;
+  color: #ffffff;
+}
+
 .hidden {
   left: -198px;
 }
@@ -18,11 +34,12 @@
   left: 0px;
 }
 
-/* sidebar sections */
+/* sidebar sections (mobile first) */
 .firstSection,
 .secondSection,
 .thirdSection,
 .fourthSection {
+  position: relative;
   background-color: #1f2637;
   width: 100%;
   padding: 0;
@@ -33,23 +50,36 @@
 }
 
 .secondSection {
-  height: 242px;
-  border-top: 1px solid #282f41;
-  border-bottom: 1px solid #141824;
-  margin-bottom: 4px;
+  min-height: 245px;
+  /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
+  box-shadow: 0px -1px 1px #282f41; /* тень над верхней границей */
+  border-bottom: 5px solid #19202e;
 }
 
 .thirdSection {
-  height: 183px;
-  border-top: 1px solid #282f41;
-  border-bottom: 1px solid #141824;
-  margin-bottom: 4px;
+  min-height: 186px;
+  /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
+  box-shadow: 0px -1px 1px #282f41; /* тень над верхней границей */
+  border-bottom: 5px solid #19202e;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .fourthSection {
-  height: 348px;
-  border-top: 1px solid #282f41;
+  min-height: 348px;
+  box-shadow: 0px -1px 1px #282f41; /* тень над верхней границей */
   margin-bottom: 0px;
+}
+
+.line { /* декоротивная линия */
+  height: 1px;
+  width: 100%;
+  background-color: #141824;
+  border: none;
+  position: absolute;
+  bottom: 0px;
 }
 
 /* Styles for PC */
@@ -61,9 +91,9 @@
     border: none;
   }
   .firstSection {
-    height: 114px;
-    border-bottom: 1px solid #141824;
-    margin-bottom: 4px;
+    height: 120px;
+    /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
+    border-bottom: 5px solid #19202e;
     display: flex;
     justify-content: center;
     align-items: center;
