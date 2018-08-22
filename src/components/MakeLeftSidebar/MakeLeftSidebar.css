@@ -27,6 +27,11 @@
   color: #ffffff;
 }
 
+.Button:focus {
+  background-color: #15a4fa;
+  color: #ffffff;
+}
+
 .hidden {
   left: -198px;
 }
