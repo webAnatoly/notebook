@@ -1,0 +1,44 @@
+/* mobile first */
+.Informer {
+  position: relative;
+  width: 100%;
+  min-height: 138px;
+  background-color: transparent;
+  color: #434b60;
+  font-size: 1rem;
+  overflow: hidden;
+  word-break: keep-all;
+  overflow-x: auto;
+  padding-left: 25px;
+}
+
+.p {
+  line-height: 1.2rem;
+}
+
+.Info {
+  color: #677b92;
+}
+
+.clock {
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: 2.7vh;
+  left: 0vw;
+  background: url('../../assets/clock.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .Informer {
+    padding-left: 25px;
+  }
+  .clock {
+    top: 18px;
+    left: 3px;
+  }
+}
