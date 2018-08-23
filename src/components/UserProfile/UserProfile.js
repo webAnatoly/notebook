@@ -12,7 +12,7 @@ const UserProfile = ({ userName, customizeStyles }) => {
     <div className={styles.join(' ')}>
       <div className={css.icon} />
       <div className={css.UserName}>{userName}</div>
-      <RoundButton />
+      <div className={css.button}><RoundButton /></div>
     </div>
   );
 };
