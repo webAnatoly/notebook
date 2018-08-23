@@ -6,9 +6,19 @@
   color: white;
 }
 
+.icon {
+  background-color: #eef1f7;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
 /* PC */
 @media (min-width: 769px) {
   .UserProfile {
     width: 158px;
+  }
+  .icon {
+    width: 32px;
+    height: 32px;
   }
 }
