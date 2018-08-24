@@ -1,13 +1,22 @@
 .SmallButton {
-  width: 72px;
-  height: 20px;
-  border-radius: 20px;
+  width: 95px;
+  height: 25px;
+  border-radius: 15px;
   font-size: 12px;
   background-color: transparent;
   color: #8c97b2;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .SmallButton_choosed {
+  background-color: #97b3ce;
+  color: white;
+}
+
+.SmallButton:hover {
   background-color: #97b3ce;
   color: white;
 }
