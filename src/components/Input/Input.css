@@ -1,0 +1,35 @@
+/* mobile-first */
+.Input {
+  position: relative;
+  border: 1px solid #c7cddb;
+  background-color: #ffffff;
+  color: #8c97b2;
+  border-radius: 16px;
+  height: 32px;
+  width: 50vw;
+  outline: none;
+  padding: 5px 35px 5px 12px;
+}
+
+.Textarea {
+  border: 1px solid lightblue;
+  width: 300px;
+  height: 200px;
+}
+
+.Label {
+  border: 1px solid lightblue;
+}
+
+/* PC second */
+@media (min-width: 769px) {
+  .Input {
+    width: 400px;
+  }
+  .wrapper::after {
+    content: url(../../assets/search_icon.png);
+    position: absolute;
+    top: 16px;
+    right: 30px;
+  }
+}

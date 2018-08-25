@@ -6,6 +6,7 @@ import MakeLeftSidebar from './components/MakeLeftSidebar/MakeLeftSidebar';
 import MakeTopNav from './components/MakeTopNav/MakeTopNav';
 import Button from './components/Buttons/Button/Button';
 import Menu from './components/Menu/Menu';
+import Input from './components/Input/Input';
 
 import css from './App.css';
 import ShowNotes from './components/ShowNotes/ShowNotes';
@@ -43,6 +44,7 @@ export default class App extends React.Component {
           </div>
           <div className={css.secondRow}>
             <Menu />
+            <Input id="search_1" customizeStyles={css.Input_Search} />
           </div>
           <Workspace customazeStyles={css.Workspace_mainWorkspace}>
             <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
