@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../Buttons/Button/Button';
 import SmallButton from '../Buttons/SmallButton/SmallButton';
 import css from './Menu.css';
 
@@ -15,6 +16,7 @@ const Menu = ({ customizeStyles }) => {
       <SmallButton>Most Recent</SmallButton>
       <SmallButton>Lorem Ipsum</SmallButton>
       <SmallButton>Lorem Ipsum</SmallButton>
+      <Button customazeStyles={css.toggleButton} />
     </div>
   );
 };

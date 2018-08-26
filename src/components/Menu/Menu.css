@@ -1,15 +1,37 @@
 /* mobile-first */
 .Menu {
-  min-width: 300px;
+  position: relative;
+  width: 90vw;
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+}
+
+.toggleButton {
+  position: absolute;
+  top: 0px;
+  right: -10vw;
+  height: 100%;
+  width: 10vw;
+  background-color: #ffffff;
+  background-image: url(../../assets/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 5vw;
+  border: 1px solid #c7cddb;
+  border-right: transparent;
+  border-top-left-radius: 7vw;
+  border-bottom-left-radius: 7vw;
 }
 
 /* PC */
 @media (min-width: 769px) {
   .Menu {
     width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+  .toggleButton { display: none }
 }

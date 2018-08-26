@@ -60,16 +60,24 @@ const Input = ({
       );
       break;
     }
-    default:
+    default: {
+      /* по умолчанию инпут будет с иконкой поиска, если нужен другой инпут,
+      то в свойстве inputTagName надо передать 'input', в этом случае
+      отрендерится инпут без иконки, который можно стилизовать под свои нужды */
+      const cssClasses = [
+        css.wrapperForDefaultInput,
+        customizeStyles,
+      ];
       htmlElement = (
-        <div className={css.wrapper}>
+        <div className={cssClasses.join(' ')}>
           <input
-            className={inputClasses.join(' ')}
+            className={css.Input}
             type="text"
             {...elementConfig}
           />
         </div>
       );
+    }
   }
 
   return (

@@ -1,0 +1,16 @@
+/* mobile */
+.Search {
+  display: none;
+}
+
+/* PC */
+@media (min-width: 769px) {
+  /* Позиционирование и кастомизация поля ввода поиска по сайту в PC версии */
+  .Search {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 20px;
+  }
+}
+  

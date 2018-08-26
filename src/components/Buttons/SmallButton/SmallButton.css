@@ -1,11 +1,12 @@
+/* mobile-first */
 .SmallButton {
-  width: 95px;
-  height: 25px;
-  border-radius: 15px;
+  width: 20vw;
+  height: 5.1vh;
+  border-radius: 10px;
   font-size: 12px;
   background-color: transparent;
   color: #8c97b2;
-  padding: 4px 8px;
+  padding: 0 0.6vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +20,16 @@
 .SmallButton:hover {
   background-color: #97b3ce;
   color: white;
+}
+
+/* PC second */
+@media (min-width: 769px) {
+  .SmallButton {
+    width: 95px;
+    height: 25px;
+    border-radius: 15px;
+    padding: 4px 8px;
+  }
 }
 
 

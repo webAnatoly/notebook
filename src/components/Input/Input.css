@@ -26,10 +26,15 @@
   .Input {
     width: 400px;
   }
-  .wrapper::after {
+  .wrapperForDefaultInput {
+    position: relative;
+    width: 400px;
+    height: 32px;
+  }
+  .wrapperForDefaultInput::after {
     content: url(../../assets/search_icon.png);
     position: absolute;
-    top: 16px;
-    right: 30px;
+    top: 9.5px;
+    right: 12px;
   }
 }
