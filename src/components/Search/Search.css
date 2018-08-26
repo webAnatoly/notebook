@@ -1,48 +1,51 @@
-/* mobile */
+/* mobile first */
 .Search {
-  display: block;
+  display: none;
 }
 
-.Search_show {
+.mobileSearch {
   visibility: visible;
   position: absolute;
-  height: 100%;
-  width: 87vw;
   top: 0px;
-  left: 10vw;
+  right: 2vw;
+  height: 100%;
+  width: 20vw;
+  background-color: #ffffff;
   border-radius: 0px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   border-left: 1px solid transparent;
+}
 
+.mobileSearch_show {
+  visibility: visible;
   animation-name: shift;
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-direction: forwards;
-  transform: translateX(1vw);
+  width: 88vw;
 }
-.Search_hide {
+.mobileSearch_hide {
   visibility: hidden;
 }
 
 @keyframes shift{
-  0% { transform: translateX(68vw)}
-  100% { transform: translateX(1vw)}
+  0% { width: 18vw}
+  100% { width: 88vw}
 }
 
 /* PC */
 @media (min-width: 769px) {
   /* Позиционирование и кастомизация поля ввода поиска по сайту в PC версии */
   .Search {
-    visibility: visible;
     display: block;
     position: absolute;
     top: 8px;
     right: 20px;
   }
-  /* в десктопной версии ничего не скрываем */
-  .Search_hide {
-    visibility: visible;
+  .mobileSearch,
+  .mobileSearch_show {
+    display: none;
   }
 }
   

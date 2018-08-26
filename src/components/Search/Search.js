@@ -3,26 +3,33 @@ import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import css from './Search.css';
 
-const Search = ({ show, isShiftMenu }) => {
+const Search = ({ isShiftMenu }) => {
+  /* [TO DO] добавить проверку ширины дисплея по событию ресайз
+  и на основе ширины дисплея рендерить определённый инпут.
+  */
   let result = null;
-  /* показать поле поиска в мобильной версии после нажатия на иконку поиска */
-  if (show && isShiftMenu) {
+  /* поисковое поле для мобильной версии */
+  if (isShiftMenu) {
     /* для мобильной версии просто инпут. Иконка будет рядом в виде кнопки */
-    result = <Input id="search_1" customizeStyles={[css.Search, css.Search_show].join(' ')} inputTagName="input" />;
+    result = (
+      <Input
+        id="search_1"
+        customizeStyles={[css.mobileSearch, css.mobileSearch_show].join(' ')}
+        inputTagName="input"
+        elementConfig={{ type: 'text', placeholder: 'search entries' }}
+      />);
   } else {
     /* поисковое поле для десктопной версии (с иконкой поиска) */
-    result = <Input id="search_1" customizeStyles={[css.Search, css.Search_hide].join(' ')} />;
+    result = <Input id="search_1" customizeStyles={css.Search} />;
   }
   return result;
 };
 
 Search.propTypes = {
-  show: PropTypes.bool,
   isShiftMenu: PropTypes.bool,
 };
 
 Search.defaultProps = {
-  show: true,
   isShiftMenu: false,
 };
 

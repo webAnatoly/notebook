@@ -40,7 +40,7 @@ const Input = ({
           id={id}
           className={inputClasses.join(' ')}
           onChange={changed}
-          value={value}
+          defaultValue={value}
         />
       );
       break;
@@ -55,7 +55,7 @@ const Input = ({
           id={id}
           className={textareaCss.join(' ')}
           onChange={changed}
-          value={value}
+          defaultValue={value}
         />
       );
       break;

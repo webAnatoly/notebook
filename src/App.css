@@ -88,18 +88,6 @@
   align-items: center;
 }
 
-/* Показать поисковое поле в мобильной версии после нажатия на иконку поиска */
-.showSearch {
-  right: 2vw;
-  top: 0px;
-  height: 100%;
-  width: 88.5vw;
-  border-radius: 0px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border-left: 1px solid transparent;
-}
-
 /* Стили для настольного ПК */
 @media (min-width: 769px) {
   .App {
