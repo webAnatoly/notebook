@@ -18,11 +18,24 @@
   background-image: url(../../assets/search_icon.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 5vw;
+  background-size: 4vw;
   border: 1px solid #c7cddb;
   border-right: transparent;
   border-top-left-radius: 7vw;
   border-bottom-left-radius: 7vw;
+}
+
+.shiftMenu {
+  animation-name: shiftMenuSoftly;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: forwards;
+  transform: translateX(-88vw);
+}
+
+@keyframes shiftMenuSoftly{
+  0% { transform: translateX(-20vw)}
+  100% { transform: translateX(-88vw)}
 }
 
 /* PC */

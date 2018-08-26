@@ -1,16 +1,48 @@
 /* mobile */
 .Search {
-  display: none;
+  display: block;
+}
+
+.Search_show {
+  visibility: visible;
+  position: absolute;
+  height: 100%;
+  width: 87vw;
+  top: 0px;
+  left: 10vw;
+  border-radius: 0px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-left: 1px solid transparent;
+
+  animation-name: shift;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: forwards;
+  transform: translateX(1vw);
+}
+.Search_hide {
+  visibility: hidden;
+}
+
+@keyframes shift{
+  0% { transform: translateX(68vw)}
+  100% { transform: translateX(1vw)}
 }
 
 /* PC */
 @media (min-width: 769px) {
   /* Позиционирование и кастомизация поля ввода поиска по сайту в PC версии */
   .Search {
+    visibility: visible;
     display: block;
     position: absolute;
     top: 8px;
     right: 20px;
+  }
+  /* в десктопной версии ничего не скрываем */
+  .Search_hide {
+    visibility: visible;
   }
 }
   

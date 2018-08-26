@@ -17,6 +17,7 @@ export default class App extends React.Component {
     this.state = {
       isFullNote: false,
       isLeftSidebarVisible: false,
+      isShiftMenu: false,
     };
   }
 
@@ -28,8 +29,16 @@ export default class App extends React.Component {
     this.setState(prevState => ({ isLeftSidebarVisible: !prevState.isLeftSidebarVisible }));
   }
 
+  handleClickMobileSearchIcon = () => {
+    this.setState(prevState => ({ isShiftMenu: !prevState.isShiftMenu }));
+  }
+
   render() {
-    const { isFullNote, isLeftSidebarVisible } = this.state;
+    const {
+      isFullNote,
+      isLeftSidebarVisible,
+      isShiftMenu,
+    } = this.state;
     return (
       <div className={css.App}>
         <Nav customazeStyles={css.Nav_Top}>
@@ -43,8 +52,8 @@ export default class App extends React.Component {
             <Button customazeStyles={css.browseAllEntriesButton} htmlType="button">browse all your entries</Button>
           </div>
           <div className={css.secondRow}>
-            <Menu />
-            <Search show />
+            <Menu shiftMenuHandler={this.handleClickMobileSearchIcon} isShiftMenu={isShiftMenu} />
+            <Search isShiftMenu={isShiftMenu} />
           </div>
           <Workspace customazeStyles={css.Workspace_mainWorkspace}>
             <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
