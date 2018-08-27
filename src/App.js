@@ -21,6 +21,12 @@ export default class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      console.log('resize'); this.setState({ isShiftMenu: false });
+    }, false);
+  }
+
   handleDoubleClickOnSmallNote = () => {
     this.setState({ isFullNote: true });
   }

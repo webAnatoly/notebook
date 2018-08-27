@@ -4,12 +4,9 @@ import Input from '../Input/Input';
 import css from './Search.css';
 
 const Search = ({ isShiftMenu }) => {
-  /* [TO DO] добавить проверку ширины дисплея по событию ресайз
-  и на основе ширины дисплея рендерить определённый инпут.
-  */
   let result = null;
   /* поисковое поле для мобильной версии */
-  if (isShiftMenu) {
+  if (isShiftMenu && window.innerWidth <= 768) {
     /* для мобильной версии просто инпут. Иконка будет рядом в виде кнопки */
     result = (
       <Input
