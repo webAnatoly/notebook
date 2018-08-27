@@ -57,7 +57,6 @@ export default class App extends React.Component {
           <MakeTopNav showLeftSidebar={this.showLeftSidebar} />
         </Nav>
         <MakeLeftSidebar show={isLeftSidebarVisible} />
-        <Nav customazeStyles={css.Nav_Bottom} />
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
             <Button customazeStyles={css.mobileAddEntryButton} htmlType="button">add note</Button>
@@ -71,6 +70,7 @@ export default class App extends React.Component {
             <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
           </Workspace>
         </div>
+        <Nav customazeStyles={css.Nav_Bottom} />
       </div>
     );
   }

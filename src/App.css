@@ -40,7 +40,7 @@
 .topRow {
   position: relative;
   width: 100%;
-  height: 7.1vh;
+  height: 54px;
   border-bottom: 1px solid rgb(218, 223, 234);
   background-color: #eef1f7;
   font-size: 1.2rem;
@@ -50,7 +50,7 @@
 .secondRow {
   position: relative;
   width: 100%;
-  height: 6vh;
+  height: 50px;
   border-bottom: 1px solid rgb(218, 223, 234);
   background-color: #eef1f7;
 }
@@ -63,10 +63,11 @@
 /* Позиционирование и кастомизация кноки "добавит запись" в мобильной версии (mobile_first) */
 .mobileAddEntryButton {
   position: absolute;
-  top: 0.4vh;
-  right: 0.8vw;
-  height: 6vh;
-  width: 40%;
+  top: 3px;
+  right: 2vw;
+  height: 46px;
+  width: 140px;
+  border-radius: 20px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -78,9 +79,9 @@
   position: absolute;
   background-color: transparent;
   color: #78829d;
-  top: 0.4vh;
-  left: -1vw;
-  height: 6vh;
+  top: 3px;
+  left: -10px;
+  height: 46px;
   width: 60vw;
   text-transform: capitalize;
   display: flex;
@@ -114,7 +115,6 @@
     font-size: 22px;
   }
   .secondRow {
-    height: 50px;
     padding-left: 25px;
   }
   .Workspace_mainWorkspace {

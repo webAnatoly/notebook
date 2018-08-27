@@ -18,11 +18,11 @@
   background-image: url(../../assets/search_icon.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 4vw;
+  background-size: 13px;
   border: 1px solid #c7cddb;
   border-right: transparent;
-  border-top-left-radius: 7vw;
-  border-bottom-left-radius: 7vw;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
 }
 
 .shiftMenu {

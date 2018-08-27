@@ -10,8 +10,8 @@ const UserProfile = ({ userName, customizeStyles }) => {
   ];
   return (
     <div className={styles.join(' ')}>
-      <div className={css.icon} />
-      <div className={css.UserName}>{userName}</div>
+      <div className={css.userIcon} />
+      <div>{userName}</div>
       <div className={css.button}><RoundButton /></div>
     </div>
   );

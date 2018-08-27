@@ -5,7 +5,7 @@
   z-index: 1;
   position: absolute;
   top: 8vh;
-  height: 85vh;
+  height: 84vh;
   border-right: 3px solid lightblue;
   background-color: #19202e;
   transition: left linear 0.2s;

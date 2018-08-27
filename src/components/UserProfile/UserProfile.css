@@ -1,7 +1,7 @@
 /* mobile first */
 .UserProfile {
   height: 8vh;
-  width: 50vw; /*[TO DO] переделать в единицы vw*/
+  width: 45vw;
   background-color: #15a4fa;
   color: white;
   display: flex;
@@ -11,12 +11,17 @@
   padding-right: 15px;
 }
 
-.icon {
+.userIcon {
   background-color: #eef1f7;
   border: 2px solid white;
   border-radius: 50%;
-  width: 7vw;
-  height: 7vw;
+  width: 25px;
+  height: 25px;
+}
+
+.button {
+  width: 14px;
+  height: 14px;
 }
 
 /* PC */
@@ -29,9 +34,5 @@
   .icon {
     width: 32px;
     height: 32px;
-  }
-  .button {
-    width: 11px;
-    height: 11px;
   }
 }
