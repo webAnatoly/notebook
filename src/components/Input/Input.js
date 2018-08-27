@@ -74,6 +74,7 @@ const Input = ({
             className={css.Input}
             type="text"
             {...elementConfig}
+            defaultValue={value}
           />
         </div>
       );

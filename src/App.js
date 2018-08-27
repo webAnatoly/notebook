@@ -22,9 +22,15 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', () => {
-      console.log('resize'); this.setState({ isShiftMenu: false });
-    }, false);
+    /* resize мне нужен, чтобы компонент Search при изменении размеров окна
+    перерендировал свое содержимое с учетом новой ширины окна.
+    Например когда в планшете пользователь меняет ориентацию с портретной на
+    альбомную, компонент Search должен в зависимости от новой ширины экрана отрендерить
+    тот или иной input.
+    */
+    window.addEventListener('resize', () => this.setState(prevState => ({
+      isShiftMenu: prevState.isShiftMenu,
+    })));
   }
 
   handleDoubleClickOnSmallNote = () => {
