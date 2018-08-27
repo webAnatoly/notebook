@@ -20,8 +20,6 @@
 .Nav_Bottom {
   position: absolute;
   bottom: 0px;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
   height: 8vh;
 }
 
@@ -57,7 +55,7 @@
 
 .Workspace_mainWorkspace {
   width: 100%;
-  height: 71.9vh;
+  height: 73.8vh;
 }
 
 /* Позиционирование и кастомизация кноки "добавит запись" в мобильной версии (mobile_first) */
@@ -104,6 +102,10 @@
   .Nav_Bottom {
     height: 45px;
   }
+  /* .Nav_Bottom {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+  } */
   .Wrapper_mainArea {
     top: 45px;
     left: 200px;
