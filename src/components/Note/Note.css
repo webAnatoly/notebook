@@ -1,16 +1,17 @@
 .Note {
   width: 290px;
   height: 50px;
-  border-right: 1px solid rgb(240, 227, 220);
-  border-bottom: 1px solid rgb(240, 227, 220);
+  /* border-right: 1px solid rgb(230, 229, 229);
+  border-bottom: 1px solid lightgrey; */
+  box-shadow: 1px 1px 8px lightgrey;
   position: relative;
-  background-color:rgb(240, 227, 220);
+  background-color: #eef1f7;
   border-radius: 5px 15px 5px 5px;
   padding: 3px;
   background: radial-gradient(
     circle at top right,  
-  rgb(255, 247, 235),
-  rgb(240, 227, 220));
+  #ffffff,
+  #eef1f7);
 }
 
 .Corner {
@@ -19,7 +20,7 @@
   position: absolute;
   width: 5px;
   height: 5px;
-  border-right: 7px solid rgb(240, 227, 220);
+  border-right: 7px solid #eef1f7;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   top: 1px;

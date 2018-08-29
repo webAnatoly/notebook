@@ -3,15 +3,15 @@
   margin: auto;
   width: 290px;
   min-height: 65vh;
-  border-right: 1px solid rgb(240, 227, 220);
-  border-bottom: 1px solid rgb(240, 227, 220);
-  background-color: rgb(243, 218, 184);
+  border-right: 1px solid rgb(230, 229, 229);
+  border-bottom: 1px solid lightgrey;
+  background-color: #eef1f7;
   border-radius: 5px 15px 5px 5px;
   padding: 3px;
   background: radial-gradient(
     circle at top right,  
-  rgb(255, 247, 235),
-  rgb(243, 218, 184));
+  #ffffff,
+  #eef1f7);
 }
 
 /* Позиционирование и кастомизация маленькой заметки (для мобильной версии) */
