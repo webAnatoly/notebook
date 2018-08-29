@@ -1,8 +1,6 @@
 .Note {
   width: 290px;
   height: 50px;
-  /* border-right: 1px solid rgb(230, 229, 229);
-  border-bottom: 1px solid lightgrey; */
   box-shadow: 1px 1px 8px lightgrey;
   position: relative;
   background-color: #e5ebf8;
