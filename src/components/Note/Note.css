@@ -5,13 +5,13 @@
   border-bottom: 1px solid lightgrey; */
   box-shadow: 1px 1px 8px lightgrey;
   position: relative;
-  background-color: #eef1f7;
+  background-color: #e5ebf8;
   border-radius: 5px 15px 5px 5px;
   padding: 3px;
   background: radial-gradient(
     circle at top right,  
-  #ffffff,
-  #eef1f7);
+  #eef1f7,
+  #e5ebf8);
 }
 
 .Corner {
@@ -20,7 +20,7 @@
   position: absolute;
   width: 5px;
   height: 5px;
-  border-right: 7px solid #eef1f7;
+  border-right: 7px solid #e5ebf8;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   top: 1px;

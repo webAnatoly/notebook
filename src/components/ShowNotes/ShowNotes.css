@@ -5,13 +5,13 @@
   min-height: 65vh;
   border-right: 1px solid rgb(230, 229, 229);
   border-bottom: 1px solid lightgrey;
-  background-color: #eef1f7;
+  background-color: #e5ebf8;
   border-radius: 5px 15px 5px 5px;
   padding: 3px;
   background: radial-gradient(
     circle at top right,  
-  #ffffff,
-  #eef1f7);
+  #eef1f7,
+  #e5ebf8);
 }
 
 /* Позиционирование и кастомизация маленькой заметки (для мобильной версии) */
