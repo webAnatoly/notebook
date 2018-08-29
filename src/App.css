@@ -102,10 +102,10 @@
   .Nav_Bottom {
     height: 45px;
   }
-  /* .Nav_Bottom {
+  .Nav_Bottom {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-  } */
+  }
   .Wrapper_mainArea {
     top: 45px;
     left: 200px;
