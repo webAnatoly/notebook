@@ -30,6 +30,7 @@
   width: 100vw;
   top: 8vh;
   left: 0;
+  overflow: auto;
 }
 
 .topRow { padding-left: 25px;}
