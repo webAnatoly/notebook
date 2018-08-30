@@ -14,7 +14,6 @@
 /* Позиционирование и кастомизация кнопки из второй секции в левом сайдбаре (mobile_first) */
 .Button {
   background-color: transparent;
-  /* border: 1px solid red; */
   width: 100%;
   height: 38px;
   color: #78829d;
@@ -56,14 +55,12 @@
 
 .secondSection {
   min-height: 245px;
-  /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
   box-shadow: 0px -1px 1px #282f41; /* тень над верхней границей */
   border-bottom: 5px solid #19202e;
 }
 
 .thirdSection {
   min-height: 186px;
-  /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
   box-shadow: 0px -1px 1px #282f41; /* тень над верхней границей */
   border-bottom: 5px solid #19202e;
   display: flex;
@@ -98,7 +95,6 @@
   }
   .firstSection {
     height: 120px;
-    /* border-bottom: 1px solid #141824; [TO DO] Переделать на тень во внутрь */
     border-bottom: 5px solid #19202e;
     display: flex;
     justify-content: center;
