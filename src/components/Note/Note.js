@@ -19,10 +19,10 @@ const Note = ({
   const css = [
     !isFullNote ? styles.Note : '',
     customizeStyles,
+    styles.base,
   ];
   return (
     <div className={css.join(' ')}>
-      <div className={styles.Corner} />
       { /* [TO DO] сделать выпадающею менюшку на превьюшке заметки */}
       <div className="menu" />
       <div
@@ -38,7 +38,8 @@ const Note = ({
         {/* [TO DO] Если юзер не ввел название заметки,
         то title должен составляться из первых нескольких слов заметки
         с многоточием на конче */}
-        <div>{title}</div>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.decorLine} />
         <div>{children}</div>
       </div>
     </div>

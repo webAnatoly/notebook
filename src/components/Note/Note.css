@@ -1,14 +1,32 @@
+/* mobile-first */
+.base {
+  background-color: #e5ebf8;
+  position: relative;
+  line-height: 1.4;
+  font-size: 1.1rem;
+}
+
+.decorLine {
+  width: 95%;
+  height: 1px;
+  background-color: lightgrey;
+  margin-bottom: 5px;
+  border-top-right-radius: 50%;
+}
+
 .Note {
   width: 80vw;
   height: 70px;
   box-shadow: 1px 1px 8px lightgrey;
-  position: relative;
-  background-color: #e5ebf8;
   border-radius: 5px 15px 5px 5px;
   background: radial-gradient(
     circle at top right,  
   #eef1f7,
   #e5ebf8);
+}
+
+.title {
+  font-weight: 700;
 }
 
 /* Растянутый по всей превьюшке div */ 
