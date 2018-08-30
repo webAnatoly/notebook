@@ -9,9 +9,15 @@ const showNote = () => {
   вместо списка маленьких заметок, одну большую заметку. */
 };
 
-const Note = ({ customizeStyles, showFullNote }) => {
+const Note = ({
+  customizeStyles,
+  showFullNote,
+  children,
+  title,
+  isFullNote,
+}) => {
   const css = [
-    styles.Note,
+    !isFullNote ? styles.Note : '',
     customizeStyles,
   ];
   return (
@@ -28,18 +34,31 @@ const Note = ({ customizeStyles, showFullNote }) => {
         onDoubleClick={showFullNote}
         onTouchStart={showFullNote}
       />
-      <div>Note</div>
+      <div>
+        {/* [TO DO] Если юзер не ввел название заметки,
+        то title должен составляться из первых нескольких слов заметки
+        с многоточием на конче */}
+        <div>{title}</div>
+        <div>{children}</div>
+      </div>
     </div>
   );
 };
 
 Note.propTypes = {
   customizeStyles: PropTypes.string,
-  showFullNote: PropTypes.func.isRequired,
+  showFullNote: PropTypes.func,
+  isFullNote: PropTypes.bool,
+  children: PropTypes.string,
+  title: PropTypes.string,
 };
 
 Note.defaultProps = {
   customizeStyles: '',
+  children: '',
+  title: '',
+  showFullNote: () => null,
+  isFullNote: false, // показывать или нет заметку в полном размере
 };
 
 export default Note;

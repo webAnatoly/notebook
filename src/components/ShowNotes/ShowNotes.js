@@ -13,6 +13,7 @@ const ShowNotes = ({ isFullNote, showFullNote }) => {
     <Note
       showFullNote={showFullNote}
       customizeStyles={css.Node_Small}
+      title="Название заметки"
     >
       Маленькая заметка
     </Note>
@@ -20,11 +21,13 @@ const ShowNotes = ({ isFullNote, showFullNote }) => {
 
   if (isFullNote) {
     result = (
-      <div
-        className={css.FullNote}
+      <Note
+        isFullNote
+        customizeStyles={css.FullNote}
+        title="Название заметки"
       >
         Большая заметка
-      </div>
+      </Note>
     );
   }
   return result;

@@ -1,13 +1,14 @@
 /* mobile first */
 .FullNote {
+  position: relative;
   margin: auto;
-  width: 290px;
+  width: 80vw;
   min-height: 65vh;
   border-right: 1px solid rgb(230, 229, 229);
   border-bottom: 1px solid lightgrey;
   background-color: #e5ebf8;
   border-radius: 5px 15px 5px 5px;
-  padding: 3px;
+  padding: 5px;
   background: radial-gradient(
     circle at top right,  
   #eef1f7,
@@ -17,6 +18,7 @@
 /* Позиционирование и кастомизация маленькой заметки (для мобильной версии) */
 .Node_Small {
   margin: auto;
+  padding: 5px;
 }
 
 /* PC */
@@ -25,7 +27,8 @@
     margin-left: 0px;
     margin-top: 0;
     min-height: 720px;
-    width: 1050px;
+    width: 1071px;
+    padding: 10px;
   }
   .Node_Small {
     margin: 0px 10px 10px 0px;
