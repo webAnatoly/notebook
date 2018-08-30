@@ -1,8 +1,7 @@
 .Workspace {
   width: 100%;
   background-color: #ffffff;
-  padding: 10px;
-  padding-top: 25px;
+  padding: 25px 10px 21px 10px;
   overflow: auto;
 }
 
