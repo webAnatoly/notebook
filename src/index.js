@@ -1,11 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './store/reducers/reducer';
 import './normalize.css';
 import './global.css';
 import App from './App';
 
+/*
+Cоздаем глобальный store для всего приложения
+и подключаем возможность использования redux-devtools https://github.com/zalmoxisus/redux-devtools-extension#usage */
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+  reducer,
+  process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
+/* eslint-enable */
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'),
 );
 
