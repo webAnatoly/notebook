@@ -19,7 +19,7 @@ const Note = ({
   const css = [
     !isFullNote ? styles.Note : '',
     customizeStyles,
-    styles.base,
+    styles.baseNote,
   ];
   return (
     <div className={css.join(' ')}>
