@@ -56,7 +56,7 @@ export default class App extends React.Component {
         <Nav customazeStyles={css.Nav_Top}>
           <MakeTopNav showLeftSidebar={this.showLeftSidebar} />
         </Nav>
-        <MakeLeftSidebar show={isLeftSidebarVisible} />
+        <MakeLeftSidebar />
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
             <Button customazeStyles={css.mobileAddEntryButton} htmlType="button">add note</Button>

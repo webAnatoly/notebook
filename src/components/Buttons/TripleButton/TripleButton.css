@@ -21,6 +21,15 @@
 /* PC */
 @media (min-width: 769px) {
   .TrippleButton {
+    width: 45px;
+    height: 45px;
+    padding: 7px 2px;
+  }
+  .line {
+    width: 92%;
+    height: 4px;
+  }
+  .hideForPC {
     display: none;
   }
 }

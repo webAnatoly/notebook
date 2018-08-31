@@ -1,23 +1,19 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  isSidebarVisible: false,
-  startAddEntry: false,
+  isLeftSidebarVisible: false,
 };
 
-const showSidebar = (state, action) => {
+const toggleLeftSidebar = (state) => {
+  const prevValue = state.isLeftSidebarVisible;
   const newState = { ...state };
-  if (action.showSidebar) {
-    newState.isSidebarVisible = true;
-  } else {
-    newState.isSidebarVisible = false;
-  }
+  newState.isLeftSidebarVisible = !prevValue;
   return newState;
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_INGREDIENT: return showSidebar(state, action);
+    case actionTypes.TOGGLE_LEFT_SIDEBAR: return toggleLeftSidebar(state);
     default: return state;
   }
 };

@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 
 import s from './TripleButton.css';
 
-const TrippleButton = ({ showLeftSidebar }) => (
-  (
+const TrippleButton = ({ clickHandler, hideForPC }) => {
+  const cssClasses = [
+    s.TrippleButton,
+    hideForPC ? s.hideForPC : '',
+  ];
+  return (
     <div
-      className={s.TrippleButton}
-      onClick={showLeftSidebar}
+      className={cssClasses.join(' ')}
+      onClick={clickHandler}
       role="button"
       onKeyDown={() => null}
       tabIndex="0"
@@ -16,15 +20,17 @@ const TrippleButton = ({ showLeftSidebar }) => (
       <div className={[s.line, s.secondLine].join(' ')} />
       <div className={[s.line, s.thirdLine].join(' ')} />
     </div>
-  )
-);
-
-TrippleButton.propTypes = {
-  showLeftSidebar: PropTypes.func.isRequired,
+  );
 };
 
-// TrippleButton.defaultProps = {
+TrippleButton.propTypes = {
+  clickHandler: PropTypes.func,
+  hideForPC: PropTypes.bool,
+};
 
-// };
+TrippleButton.defaultProps = {
+  clickHandler: () => null,
+  hideForPC: true,
+};
 
 export default TrippleButton;

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Aux from '../../hoc/Aux/Aux';
 import Sidebar from '../Sidebar/Sidebar';
@@ -53,4 +54,6 @@ MakeLeftSidebar.propTypes = {
 
 // };
 
-export default MakeLeftSidebar;
+const mapStateToProps = state => ({ show: state.isLeftSidebarVisible });
+
+export default connect(mapStateToProps)(MakeLeftSidebar);
