@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Input from '../../components/Input/Input';
 import SmallButton from '../../components/Buttons/SmallButton/SmallButton';
 
 import css from './Editor.css';
@@ -15,14 +16,26 @@ class Editor extends React.Component {
     const { customizeStyles } = this.props;
     const cssClasses = [
       css.Editor,
-      customizeStyles, // стили получаемые с того места где компонент будет использован
+      customizeStyles, /* необязательные стили позиционирования,
+      получаемые с того места где компонент будет использован */
     ];
+    const textareaConfig = {
+      inputTagName: 'textarea',
+      customizeStyles: css.Editor_textarea,
+    };
     return (
       <div className={cssClasses.join(' ')}>
-        <div>menu</div>
-        <textarea>textarea</textarea>
-        <SmallButton customizeStyles={css.SmallButton}>Save</SmallButton>
-        <SmallButton customizeStyles={css.SmallButton}>Cancel</SmallButton>
+        <div className={css.Editor_topMenu}>
+          <SmallButton customizeStyles={css.Editor_topMenuButton}>b</SmallButton>
+          <SmallButton customizeStyles={css.Editor_topMenuButton}>i</SmallButton>
+          <SmallButton customizeStyles={css.Editor_topMenuButton}>t</SmallButton>
+          <SmallButton customizeStyles={css.Editor_topMenuButton}>l</SmallButton>
+        </div>
+        <Input {...textareaConfig} />
+        <div className={css.Editor_bottomMenu}>
+          <SmallButton customizeStyles={[css.SmallButton, css.SmallButton_disabled].join(' ')}>Save</SmallButton>
+          <SmallButton customizeStyles={css.SmallButton}>Cancel</SmallButton>
+        </div>
       </div>
     );
   }

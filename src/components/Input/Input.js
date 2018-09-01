@@ -92,7 +92,7 @@ const Input = ({
 Input.propTypes = {
   inputTagName: PropTypes.string, // 'text', 'textarea', 'select' etc...
   elementConfig: PropTypes.oneOfType([PropTypes.object]), // параметры аттрибутов для элемента
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string, // id нужен если в форме будет много разных полей ввода
   value: PropTypes.string,
   label: PropTypes.string,
   changed: PropTypes.func, // onChange handler
@@ -104,6 +104,7 @@ Input.propTypes = {
 Input.defaultProps = {
   inputTagName: '',
   elementConfig: {},
+  id: '',
   label: '',
   value: '',
   invalid: false,
