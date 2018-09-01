@@ -48,7 +48,6 @@ export default class App extends React.Component {
   render() {
     const {
       isFullNote,
-      isLeftSidebarVisible,
       isShiftMenu,
     } = this.state;
     return (
