@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import SmallButton from '../../components/Buttons/SmallButton/SmallButton';
+
 import css from './Editor.css';
 
 class Editor extends React.Component {
@@ -16,7 +19,10 @@ class Editor extends React.Component {
     ];
     return (
       <div className={cssClasses.join(' ')}>
-        Editor
+        <div>menu</div>
+        <textarea>textarea</textarea>
+        <SmallButton customizeStyles={css.SmallButton}>Save</SmallButton>
+        <SmallButton customizeStyles={css.SmallButton}>Cancel</SmallButton>
       </div>
     );
   }

@@ -6,7 +6,7 @@ import css from './LargeButton.css';
 
 const LargeButton = ({ children, clickHandler }) => (
   <Button
-    customazeStyles={css.LargeButton}
+    customizeStyles={css.LargeButton}
     htmlType="button"
     clickHandler={clickHandler}
   >

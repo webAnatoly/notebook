@@ -9,12 +9,12 @@ import PropTypes from 'prop-types';
 import css from './Button.css';
 
 const Button = ({
-  htmlType, children, animation, customazeStyles, clickHandler,
+  htmlType, children, animation, customizeStyles, clickHandler,
 }) => {
   const classes = [
     css.Button,
     animation ? css.ClickedButton : '',
-    customazeStyles,
+    customizeStyles,
   ];
   const btn = (
     /* eslint-disable react/button-has-type */
@@ -35,14 +35,14 @@ Button.propTypes = {
   children: PropTypes.string,
   htmlType: PropTypes.oneOf(['button', 'submit']).isRequired,
   animation: PropTypes.bool,
-  customazeStyles: PropTypes.string,
+  customizeStyles: PropTypes.string,
   clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {
   children: '',
   animation: false,
-  customazeStyles: '',
+  customizeStyles: '',
   clickHandler: () => null,
 };
 

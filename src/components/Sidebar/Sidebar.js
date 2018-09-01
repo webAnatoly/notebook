@@ -11,10 +11,10 @@ import styles from './Sidebar.css';
 let lang = window.localStorage.getItem('lang');
 if (lang) { lang = JSON.parse(lang); }
 
-const Sidebar = ({ customazeStyles, children }) => {
+const Sidebar = ({ customizeStyles, children }) => {
   const css = [
     styles.Sidebar,
-    customazeStyles, // CSS стили получаемые в пропсах
+    customizeStyles, // CSS стили получаемые в пропсах
   ];
   return (
     <div className={css.join(' ')}>
@@ -24,12 +24,12 @@ const Sidebar = ({ customazeStyles, children }) => {
 };
 
 Sidebar.propTypes = {
-  customazeStyles: PropTypes.string,
+  customizeStyles: PropTypes.string,
   children: PropTypes.element,
 };
 
 Sidebar.defaultProps = {
-  customazeStyles: '',
+  customizeStyles: '',
   children: null,
 };
 

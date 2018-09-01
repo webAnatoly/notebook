@@ -18,7 +18,7 @@ const Menu = ({ customizeStyles, isShiftMenu, shiftMenuHandler }) => {
       <SmallButton>Lorem Ipsum</SmallButton>
       <SmallButton>Lorem Ipsum</SmallButton>
       <Button
-        customazeStyles={css.toggleButton}
+        customizeStyles={css.toggleButton}
         clickHandler={shiftMenuHandler}
         htmlType="button"
       />

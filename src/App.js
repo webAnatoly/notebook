@@ -56,24 +56,24 @@ class App extends React.Component {
     const { onAddNoteClicked } = this.props;
     return (
       <div className={css.App}>
-        <Nav customazeStyles={css.Nav_Top}>
+        <Nav customizeStyles={css.Nav_Top}>
           <MakeTopNav showLeftSidebar={this.showLeftSidebar} />
         </Nav>
         <MakeLeftSidebar />
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
-            <Button customazeStyles={css.mobileAddEntryButton} htmlType="button" clickHandler={onAddNoteClicked}>add note</Button>
-            <Button customazeStyles={css.browseAllEntriesButton} htmlType="button">browse all your entries</Button>
+            <Button customizeStyles={css.mobileAddEntryButton} htmlType="button" clickHandler={onAddNoteClicked}>add note</Button>
+            <Button customizeStyles={css.browseAllEntriesButton} htmlType="button">browse all your entries</Button>
           </div>
           <div className={css.secondRow}>
             <Menu shiftMenuHandler={this.handleClickMobileSearchIcon} isShiftMenu={isShiftMenu} />
             <Search isShiftMenu={isShiftMenu} />
           </div>
-          <Workspace customazeStyles={css.Workspace_mainWorkspace}>
+          <Workspace customizeStyles={css.Workspace_mainWorkspace}>
             <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
           </Workspace>
         </div>
-        <Nav customazeStyles={css.Nav_Bottom} />
+        <Nav customizeStyles={css.Nav_Bottom} />
       </div>
     );
   }

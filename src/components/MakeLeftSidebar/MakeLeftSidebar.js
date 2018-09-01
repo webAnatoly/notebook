@@ -17,26 +17,26 @@ const MakeLeftSidebar = ({ show, onAddNoteClicked }) => {
     sidebarCSS = [css.Sidebar_Left, css.showed];
   }
   return (
-    <Sidebar customazeStyles={sidebarCSS.join(' ')}>
+    <Sidebar customizeStyles={sidebarCSS.join(' ')}>
       <Aux>
         <div className={css.firstSection}>
           <LargeButton clickHandler={onAddNoteClicked}>add note</LargeButton>
           <div className={css.line} />
         </div>
         <div className={css.secondSection}>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
           <div className={css.line} />
         </div>
         <div className={css.thirdSection}>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
-          <Button customazeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
+          <Button customizeStyles={css.Button} htmlType="button">lorem ipsum</Button>
           <div className={css.line} />
         </div>
         <div className={css.fourthSection}>
