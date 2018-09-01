@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as actions from './store/actions/mainActions';
 
 import Nav from './components/Nav/Nav';
 import Workspace from './components/Workspace/Workspace';
@@ -11,7 +14,7 @@ import Search from './components/Search/Search';
 import css from './App.css';
 import ShowNotes from './components/ShowNotes/ShowNotes';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,6 +53,7 @@ export default class App extends React.Component {
       isFullNote,
       isShiftMenu,
     } = this.state;
+    const { onAddNoteClicked } = this.props;
     return (
       <div className={css.App}>
         <Nav customazeStyles={css.Nav_Top}>
@@ -58,7 +62,7 @@ export default class App extends React.Component {
         <MakeLeftSidebar />
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
-            <Button customazeStyles={css.mobileAddEntryButton} htmlType="button">add note</Button>
+            <Button customazeStyles={css.mobileAddEntryButton} htmlType="button" clickHandler={onAddNoteClicked}>add note</Button>
             <Button customazeStyles={css.browseAllEntriesButton} htmlType="button">browse all your entries</Button>
           </div>
           <div className={css.secondRow}>
@@ -74,3 +78,17 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  onAddNoteClicked: PropTypes.func.isRequired,
+};
+
+// App.defaultProps = {
+
+// };
+
+const mapDispatchToProps = dispatch => ({
+  onAddNoteClicked: () => dispatch(actions.editEntry()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

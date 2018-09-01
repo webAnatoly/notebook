@@ -1,0 +1,13 @@
+/* mobile-first */
+.Editor {
+  width: 100%;
+  min-height: 100%;
+  border: 1px solid red;
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .Editor {
+    border: 1px solid blue;
+  }
+}

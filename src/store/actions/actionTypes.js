@@ -1,3 +1,3 @@
-export const EDIT_ENTRY = 'EDIT_ENTRY';
+export const START_EDIT_ENTRY = 'START_EDIT_ENTRY';
 
 export const TOGGLE_LEFT_SIDEBAR = 'TOGGLE_LEFT_SIDEBAR';
