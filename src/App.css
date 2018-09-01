@@ -57,7 +57,7 @@
 .Workspace_mainWorkspace {
   width: 100%;
   height: calc(73.8vh - 104px + 10.2vh); /* 104px это сумма высоты topRow and secondRow. */
-  overflow: scroll;
+  overflow: auto;
 }
 
 /* Позиционирование и кастомизация кноки "добавит запись" в мобильной версии (mobile_first) */
