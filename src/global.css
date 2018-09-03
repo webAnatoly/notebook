@@ -40,6 +40,14 @@ body {
   color: #78829d;
 }
 
+.decorLine {
+  width: 95%;
+  height: 1px;
+  background-color: lightgrey;
+  margin-bottom: 5px;
+  border-top-right-radius: 50%;
+}
+
 /* сетка на всякий случай, может пригодится */
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}

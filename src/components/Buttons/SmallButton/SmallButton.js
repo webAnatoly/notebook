@@ -4,14 +4,19 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import css from './SmallButton.css';
 
-const SmallButton = ({ children, clickHandler, customizeStyles }) => {
+const SmallButton = ({
+  children,
+  clickHandler,
+  customizeStyles,
+  htmlType,
+}) => {
   const styles = [
     css.SmallButton,
     customizeStyles,
   ];
   return (
     <Button
-      htmlType="button"
+      htmlType={htmlType}
       customizeStyles={styles.join(' ')}
       clickHandler={clickHandler}
     >
@@ -22,15 +27,17 @@ const SmallButton = ({ children, clickHandler, customizeStyles }) => {
 
 
 SmallButton.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   clickHandler: PropTypes.func,
   customizeStyles: PropTypes.string,
+  htmlType: PropTypes.string,
 };
 
 SmallButton.defaultProps = {
-  children: 'SmallButton',
+  children: '',
   clickHandler: () => null,
   customizeStyles: '',
+  htmlType: 'button',
 };
 
 export default SmallButton;

@@ -32,7 +32,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   htmlType: PropTypes.oneOf(['button', 'submit']).isRequired,
   animation: PropTypes.bool,
   customizeStyles: PropTypes.string,

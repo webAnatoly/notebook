@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import DecorLine from '../decorLine/decorLine';
 import styles from './Note.css';
 
 const showNote = () => {
@@ -39,7 +40,7 @@ const Note = ({
         то title должен составляться из первых нескольких слов заметки
         с многоточием на конче */}
         <div className={styles.title}>{title}</div>
-        <div className={styles.decorLine} />
+        <DecorLine customizeStyles={styles.decorLine} />
         <div>{children}</div>
       </div>
     </div>

@@ -7,14 +7,6 @@
   overflow: hidden;
 }
 
-.decorLine {
-  width: 95%;
-  height: 1px;
-  background-color: lightgrey;
-  margin-bottom: 5px;
-  border-top-right-radius: 50%;
-}
-
 .Note {
   width: 80vw;
   height: 70px;
@@ -28,6 +20,10 @@
 
 .title {
   font-weight: 700;
+}
+
+.decorLine {
+  margin-bottom: 10px;
 }
 
 /* Растянутый по всей превьюшке div */ 
