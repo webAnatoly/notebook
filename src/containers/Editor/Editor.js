@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import * as actions from '../../store/actions/mainActions';
 
 import SmallButton from '../../components/Buttons/SmallButton/SmallButton';
 import DecorLine from '../../components/decorLine/decorLine';
@@ -10,63 +13,118 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      titleAsInnerHtml: '<i>Название заметки</i>',
-      textAsInnerHtml: 'текст заметки',
+      atLastOneSymbolInputted: false,
+      showSaveButton: false,
     };
     this.inputRef = React.createRef(); // для автофокуса на блоке ввода текста
   }
 
   componentDidMount() {
+    document.execCommand('defaultParagraphSeparator', false, 'p');
     this.inputRef.current.focus();
+    this.cursorToTheEndOfString();
   }
 
   componentDidUpdate() {
-    console.log('[DidUpdate]');
+    this.inputRef.current.focus();
+    this.cursorToTheEndOfString();
+    console.log('DidUpdate');
+  }
+
+  onInputHandler = (event) => {
+    const { atLastOneSymbolInputted, showSaveButton } = this.state;
+    // Показать кнопку "Save", когда пользователь начал вводить текст
+    if (event.target.textContent.length > 0 && atLastOneSymbolInputted === false) {
+      this.setState({ atLastOneSymbolInputted: true, showSaveButton: true });
+    }
+    // Деактивировать кнопку "Save", если пользователь стер весь текст
+    if (event.target.textContent.length === 0 && showSaveButton === true) {
+      this.setState({ atLastOneSymbolInputted: false, showSaveButton: false });
+    }
+  }
+
+  execCommand = (commandName) => {
+    document.execCommand(commandName, false, null);
+    this.inputRef.current.focus();
+  }
+
+  cursorToTheEndOfString = () => {
+    let range = document.createRange();
+    range.selectNodeContents(this.inputRef.current);
+    range.collapse(false);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    range = null;
   }
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-  }
-
-  onInputHandler = (event) => {
-    this.setState({ textAsInnerHtml: event.target.innerText });
+    // пока что буду сохранять заметки в редактовский стор
+    // после сохранения затемнить кнопку "Save"
   }
 
   render() {
     const { customizeStyles } = this.props;
-    const { titleAsInnerHtml, textAsInnerHtml } = this.state;
+    const { showSaveButton } = this.state;
     const cssClasses = [
       css.Editor,
       customizeStyles, /* необязательные стили позиционирования,
       получаемые с того места где компонент будет использован */
     ];
+    const cssClassesForSaveButton = [
+      css.bottomMenuButton,
+      showSaveButton ? '' : css.bottomMenuButton_disabled,
+    ];
     return (
-      <form className={cssClasses.join(' ')} onSubmit={this.onSubmitHandler}>
+      <form className={cssClasses.join(' ')} onSubmit={event => this.onSubmitHandler(event)}>
         <div className={css.Editor_topMenu}>
-          <SmallButton customizeStyles={[css.Editor_topMenuButton, css.btn_bold].join(' ')}>b</SmallButton>
-          <SmallButton customizeStyles={[css.Editor_topMenuButton, css.btn_italic].join(' ')}>i</SmallButton>
-          <SmallButton customizeStyles={[css.Editor_topMenuButton, css.btn_deleted].join(' ')}>t</SmallButton>
-          <SmallButton customizeStyles={[css.Editor_topMenuButton, css.btn_link].join(' ')}>
-            <span role="img" aria-label="insert hyperlink" className={css.btn_link_symbolHyperlink}>&#128279;</span>
+          {/*
+          [TO DO] Если браузер не подерживает execCommand, то не отображать кнопки редактирования,
+                  а вместо div contenteditable рендерить textarea;
+          [TO DO] Сделать подсветку нажатой кнопки редактирования.
+                  Например, если курсор помещен на жирный текста, то подсвечивать жирную кнопку,
+                  при выделении жирного и курсивного, подсвечивались бы соответствующие кнопки
+          */}
+          <SmallButton
+            customizeStyles={[css.topMenuButton, css.btn_bold].join(' ')}
+            clickHandler={() => this.execCommand('bold')}
+          >
+            b
+          </SmallButton>
+          <SmallButton
+            customizeStyles={[css.topMenuButton, css.btn_italic].join(' ')}
+            clickHandler={() => this.execCommand('italic')}
+          >
+            i
+          </SmallButton>
+          <SmallButton
+            customizeStyles={[css.topMenuButton, css.btn_strikeThrough].join(' ')}
+            clickHandler={() => this.execCommand('strikeThrough')}
+          >
+            t
+          </SmallButton>
+          <SmallButton customizeStyles={[css.topMenuButton, css.btn_link].join(' ')}>
+            <span role="img" aria-label="insert_hyperlink" className={css.btn_link_symbolHyperlink}>&#128279;</span>
           </SmallButton>
         </div>
         <DecorLine customizeStyles={css.decorLine} />
         <div
           className={css.Editor_divAsInput_title}
           contentEditable
-          dangerouslySetInnerHTML={{ __html: titleAsInnerHtml }}
+          onInput={this.onInputHandler}
         />
         <DecorLine customizeStyles={css.decorLine} />
         <div
           className={css.Editor_divAsInput_content}
           contentEditable
           ref={this.inputRef}
-          dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
-          onInput={this.onInputHandler}
+          // dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
+          onInput={event => this.onInputHandler(event)}
         />
         <div className={css.Editor_bottomMenu}>
-          <SmallButton customizeStyles={[css.SmallButton, css.SmallButton_disabled].join(' ')} htmlType="submit">Save</SmallButton>
-          <SmallButton customizeStyles={[css.SmallButton, css.SmallButton_disabled].join(' ')}>Cancel</SmallButton>
+          <SmallButton customizeStyles={cssClassesForSaveButton.join(' ')} htmlType="submit">Save</SmallButton>
+          <SmallButton customizeStyles={css.bottomMenuButton}>Cancel</SmallButton>
         </div>
       </form>
     );
@@ -82,4 +140,8 @@ Editor.defaultProps = {
   customizeStyles: '',
 };
 
-export default Editor;
+const mapDispatchToProps = dispatch => ({
+  onEdit: () => dispatch(actions.editEntry()),
+});
+
+export default connect(null, mapDispatchToProps)(Editor);

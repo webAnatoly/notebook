@@ -9,6 +9,12 @@ export const toggleLeftSidebar = () => (
 
 export const editEntry = () => (
   {
-    type: actionTypes.START_EDIT_ENTRY,
+    type: actionTypes.EDIT_ENTRY,
+  }
+);
+
+export const cancelEditing = () => (
+  {
+    type: actionTypes.EDIT_ENTRY_CANCEL,
   }
 );

@@ -12,7 +12,7 @@ const toggleLeftSidebar = (state) => {
   return newState;
 };
 
-const startEditEntry = (state) => {
+const editEntry = (state) => {
   const newState = { ...state };
   newState.editing = true;
   return newState;
@@ -21,7 +21,7 @@ const startEditEntry = (state) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.TOGGLE_LEFT_SIDEBAR: return toggleLeftSidebar(state);
-    case actionTypes.START_EDIT_ENTRY: return startEditEntry(state);
+    case actionTypes.EDIT_ENTRY: return editEntry(state);
     default: return state;
   }
 };

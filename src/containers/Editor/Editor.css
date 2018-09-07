@@ -4,7 +4,11 @@
   min-height: 100%;
 }
 
-.SmallButton {
+.Editor p {
+  margin: 0 0 10px 0;
+}
+
+.bottomMenuButton {
   color: #ffffff;
   background-color: #97b3ce;
   height: 30px;
@@ -13,12 +17,12 @@
   font-size: 1.1rem;
 }
 
-.SmallButton_disabled {
-  color: #eef1f7;
+.bottomMenuButton_disabled {
+  color: #ffffff;
   background-color: #eef1f7;
 }
 
-.SmallButton_disabled:hover {
+.bottomMenuButton_disabled:hover {
   cursor: not-allowed;
   color: #eef1f7;
   background-color: #eef1f7;
@@ -44,7 +48,7 @@
 }
 
 /* кнопочки окошка редактирования (выделить жирным, италик, зачеркнутый шрифт и т.д.) */
-.Editor_topMenuButton {
+.topMenuButton {
   width: 30px;
   height: 30px;
   border: 2px solid #97b3ce;
@@ -53,10 +57,15 @@
   display: inline-block;
 }
 
+.topMenuButton_pushed {
+  color: #ffffff;
+  background-color:#97b3ce;
+}
+
 /* снова кнопочки окошка редактирования (выделить жирным, италик, зачеркнутый шрифт и т.д.) */
 .btn_bold,
 .btn_italic,
-.btn_deleted,
+.btn_strikeThrough,
 .btn_link {
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -65,7 +74,7 @@
 }
 
 .btn_italic { font-style: italic;}
-.btn_deleted { text-decoration:line-through; }
+.btn_strikeThrough { text-decoration:line-through; }
 
 /* поля ввода названия и текста заметки */
 .Editor_divAsInput_title,
@@ -99,7 +108,7 @@
 
 /* PC */
 @media (min-width: 769px) {
-  .SmallButton {
+  .bottomMenuButton {
     width: 70px;
     height: 30px;
     border-radius: 7px;
