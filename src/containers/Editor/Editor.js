@@ -41,6 +41,12 @@ class Editor extends React.Component {
     if (event.target.textContent.length === 0 && showSaveButton === true) {
       this.setState({ atLastOneSymbolInputted: false, showSaveButton: false });
     }
+    /* Получить поле "Название заметки" и через innerHTML выводить то,
+    что юзер печатает в саму заметку, но не больше 50 символов. */
+    if (event.target.textContent.length < 50) {
+      const title = document.querySelector(`.${css.Editor_divAsInput_title}`);
+      title.innerHTML = event.target.textContent;
+    }
   }
 
   execCommand = (commandName) => {
@@ -109,6 +115,9 @@ class Editor extends React.Component {
           </SmallButton>
         </div>
         <DecorLine customizeStyles={css.decorLine} />
+        {/* [TO DO] Если юзер не ввел название заметки, то надо автоматически выводить
+        в интерактивном режиме символы которые юзер вводит в основное поле заметки.
+        Но не больше скажем 50 символов. */}
         <div
           className={css.Editor_divAsInput_title}
           contentEditable
