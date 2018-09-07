@@ -65,7 +65,7 @@ class Editor extends React.Component {
   }
 
   render() {
-    const { customizeStyles } = this.props;
+    const { customizeStyles, onCancel } = this.props;
     const { showSaveButton } = this.state;
     const cssClasses = [
       css.Editor,
@@ -123,8 +123,18 @@ class Editor extends React.Component {
           onInput={event => this.onInputHandler(event)}
         />
         <div className={css.Editor_bottomMenu}>
-          <SmallButton customizeStyles={cssClassesForSaveButton.join(' ')} htmlType="submit">Save</SmallButton>
-          <SmallButton customizeStyles={css.bottomMenuButton}>Cancel</SmallButton>
+          <SmallButton
+            customizeStyles={cssClassesForSaveButton.join(' ')}
+            htmlType="submit"
+          >
+            Save
+          </SmallButton>
+          <SmallButton
+            customizeStyles={css.bottomMenuButton}
+            clickHandler={onCancel}
+          >
+            Cancel
+          </SmallButton>
         </div>
       </form>
     );
@@ -134,6 +144,7 @@ class Editor extends React.Component {
 
 Editor.propTypes = {
   customizeStyles: PropTypes.string,
+  onCancel: PropTypes.func.isRequired,
 };
 
 Editor.defaultProps = {
@@ -141,7 +152,7 @@ Editor.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onEdit: () => dispatch(actions.editEntry()),
+  onCancel: () => dispatch(actions.cancelEditing()),
 });
 
 export default connect(null, mapDispatchToProps)(Editor);
