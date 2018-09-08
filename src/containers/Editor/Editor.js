@@ -28,7 +28,7 @@ class Editor extends React.Component {
     this.inputRef.current.focus();
     this.cursorToTheEndOfString();
     if (window.localStorage) {
-      // Создать кэш для кэширования несахранённых заметок
+      // Создать кэш для кэширования несохранённых заметок
       if (!window.localStorage.currentNote) {
         const cash = { title: '', content: '' };
         window.localStorage.setItem('currentNote', JSON.stringify(cash));
@@ -114,8 +114,10 @@ class Editor extends React.Component {
     }
 
     // Кешировать текст заметки
+    /* Возможно это не очень эффективно при каждом нажатии клавиши выполнять JSON.parse
+    на этапе оптимизации подумаю как можно сделать лучше */
     const cash = JSON.parse(window.localStorage.getItem('currentNote'));
-    cash.content = event.target.innerHTML;
+    cash.content = event.target.textContent;
     window.localStorage.setItem('currentNote', JSON.stringify(cash));
   }
 
@@ -152,7 +154,6 @@ class Editor extends React.Component {
   render() {
     const { customizeStyles, onCancel } = this.props;
     const { showSaveButton, titleValue, textAsInnerHtml } = this.state;
-    console.log(titleValue);
     const cssClasses = [
       css.Editor,
       customizeStyles, /* необязательные стили позиционирования,
@@ -160,7 +161,7 @@ class Editor extends React.Component {
     ];
     const cssClassesForSaveButton = [
       css.bottomMenuButton,
-      showSaveButton ? '' : css.bottomMenuButton_disabled,
+      showSaveButton ? '' : css.bottomMenuButton_disabled, // css класс отвечающий за деактивацию кнопки
     ];
     return (
       <form className={cssClasses.join(' ')} onSubmit={event => this.onSubmitHandler(event)}>
