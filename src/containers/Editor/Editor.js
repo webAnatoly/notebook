@@ -17,6 +17,8 @@ class Editor extends React.Component {
       symbolInputtedInContent: false,
       showSaveButton: false,
       focusOnTitle: false,
+      titleValue: '',
+      textAsInnerHtml: '',
     };
     this.inputRef = React.createRef(); // для автофокуса на блоке ввода текста
   }
@@ -25,6 +27,23 @@ class Editor extends React.Component {
     document.execCommand('defaultParagraphSeparator', false, 'p');
     this.inputRef.current.focus();
     this.cursorToTheEndOfString();
+    if (window.localStorage) {
+      // Создать кэш для кэширования несахранённых заметок
+      if (!window.localStorage.currentNote) {
+        const cash = { title: '', content: '' };
+        window.localStorage.setItem('currentNote', JSON.stringify(cash));
+      } else {
+        // Получить заметку из кэша
+        const cashedNote = JSON.parse(window.localStorage.getItem('currentNote'));
+        // Вывести заметку в поля ввода заметки
+        if (cashedNote.title) {
+          this.setState({ titleValue: cashedNote.title, showSaveButton: true });
+        }
+        if (cashedNote.content) {
+          this.setState({ textAsInnerHtml: cashedNote.content, showSaveButton: true });
+        }
+      }
+    }
   }
 
   componentDidUpdate() {
@@ -69,6 +88,11 @@ class Editor extends React.Component {
       && symbolInputtedInContent === false) {
       this.setState({ showSaveButton: false });
     }
+
+    // Кешировать название заметки
+    const cash = JSON.parse(window.localStorage.getItem('currentNote'));
+    cash.title = event.target.value;
+    window.localStorage.setItem('currentNote', JSON.stringify(cash));
   }
 
   onInputHandlerContent = (event) => {
@@ -88,11 +112,25 @@ class Editor extends React.Component {
       && symbolInputtedInTitle === false) {
       this.setState({ showSaveButton: false });
     }
+
+    // Кешировать текст заметки
+    const cash = JSON.parse(window.localStorage.getItem('currentNote'));
+    cash.content = event.target.innerHTML;
+    window.localStorage.setItem('currentNote', JSON.stringify(cash));
   }
 
   execCommand = (commandName) => {
     document.execCommand(commandName, false, null);
     this.inputRef.current.focus();
+  }
+
+  cashUnsavedNote = () => {
+    /* [TO DO] Надо реализовать следующею логику:
+      На каждый инпут юзера сохранять заметку в localStorage браузера.
+      Это нужно для того, если юзер случайно закроет браузер, чтобы введенный текст не потерялся.
+      При успешной отправке заметки не сервер, удалять заметку из localStorage.
+      При компонент DidMount брать текст заметки из localStorage.
+    */
   }
 
   cursorToTheEndOfString = () => {
@@ -113,7 +151,8 @@ class Editor extends React.Component {
 
   render() {
     const { customizeStyles, onCancel } = this.props;
-    const { showSaveButton } = this.state;
+    const { showSaveButton, titleValue, textAsInnerHtml } = this.state;
+    console.log(titleValue);
     const cssClasses = [
       css.Editor,
       customizeStyles, /* необязательные стили позиционирования,
@@ -163,13 +202,14 @@ class Editor extends React.Component {
           className={css.input_title}
           onInput={this.onInputHandlerTitle}
           onBlur={this.onBlurHandlerTitle}
+          defaultValue={titleValue}
         />
         <DecorLine customizeStyles={css.decorLine} />
         <div
           className={css.input_content}
           contentEditable
           ref={this.inputRef}
-          // dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
+          dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
           onInput={event => this.onInputHandlerContent(event)}
         />
         <div className={css.Editor_bottomMenu}>
