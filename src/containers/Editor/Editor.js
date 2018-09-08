@@ -13,7 +13,7 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      atLastOneSymbolInputted: false,
+      symbolInputtedInContentField: false,
       showSaveButton: false,
     };
     this.inputRef = React.createRef(); // для автофокуса на блоке ввода текста
@@ -31,15 +31,15 @@ class Editor extends React.Component {
     console.log('DidUpdate');
   }
 
-  onInputHandler = (event) => {
-    const { atLastOneSymbolInputted, showSaveButton } = this.state;
+  onInputHandlerContentField = (event) => {
+    const { symbolInputtedInContentField, showSaveButton } = this.state;
     // Показать кнопку "Save", когда пользователь начал вводить текст
-    if (event.target.textContent.length > 0 && atLastOneSymbolInputted === false) {
-      this.setState({ atLastOneSymbolInputted: true, showSaveButton: true });
+    if (event.target.textContent.length > 0 && symbolInputtedInContentField === false) {
+      this.setState({ symbolInputtedInContentField: true, showSaveButton: true });
     }
     // Деактивировать кнопку "Save", если пользователь стер весь текст
     if (event.target.textContent.length === 0 && showSaveButton === true) {
-      this.setState({ atLastOneSymbolInputted: false, showSaveButton: false });
+      this.setState({ symbolInputtedInContentField: false, showSaveButton: false });
     }
     /* Получить поле "Название заметки" и через innerHTML выводить то,
     что юзер печатает в саму заметку, но не больше 50 символов. */
@@ -47,6 +47,10 @@ class Editor extends React.Component {
       const title = document.querySelector(`.${css.Editor_divAsInput_title}`);
       title.innerHTML = event.target.textContent;
     }
+  }
+
+  onInputHandlerTitleField = () => {
+    console.log('onInputHandlerTitleField');
   }
 
   execCommand = (commandName) => {
@@ -115,13 +119,13 @@ class Editor extends React.Component {
           </SmallButton>
         </div>
         <DecorLine customizeStyles={css.decorLine} />
-        {/* [TO DO] Если юзер не ввел название заметки, то надо автоматически выводить
-        в интерактивном режиме символы которые юзер вводит в основное поле заметки.
-        Но не больше скажем 50 символов. */}
+        {/* [TO DO] Если юзер не ввел название заметки, то в момент сохранения заметки,
+        если название заметки равно нулю, в качестве названия брать первые 50 символов
+        из текста основной заметки */}
         <div
           className={css.Editor_divAsInput_title}
           contentEditable
-          onInput={this.onInputHandler}
+          onInput={this.onInputHandlerTitleField}
         />
         <DecorLine customizeStyles={css.decorLine} />
         <div
@@ -129,7 +133,7 @@ class Editor extends React.Component {
           contentEditable
           ref={this.inputRef}
           // dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
-          onInput={event => this.onInputHandler(event)}
+          onInput={event => this.onInputHandlerContentField(event)}
         />
         <div className={css.Editor_bottomMenu}>
           <SmallButton
