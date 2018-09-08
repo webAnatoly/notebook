@@ -145,14 +145,15 @@ class Editor extends React.Component {
     range = null;
   }
 
-  onSubmitHandler = (event) => {
+  onSubmitHandler = (event, onSave) => {
     event.preventDefault();
     // пока что буду сохранять заметки в редактовский стор
     // после сохранения затемнить кнопку "Save"
+    onSave({ title: 'test', content: 'Lorem ipsum dolor sit amet consectetur adipisicing' });
   }
 
   render() {
-    const { customizeStyles, onCancel } = this.props;
+    const { customizeStyles, onCancel, onSave } = this.props;
     const { showSaveButton, titleValue, textAsInnerHtml } = this.state;
     const cssClasses = [
       css.Editor,
@@ -164,7 +165,7 @@ class Editor extends React.Component {
       showSaveButton ? '' : css.bottomMenuButton_disabled, // css класс отвечающий за деактивацию кнопки
     ];
     return (
-      <form className={cssClasses.join(' ')} onSubmit={event => this.onSubmitHandler(event)}>
+      <form className={cssClasses.join(' ')} onSubmit={event => this.onSubmitHandler(event, onSave)}>
         <div className={css.Editor_topMenu}>
           {/*
           [TO DO] Если браузер не подерживает execCommand, то не отображать кнопки редактирования,
@@ -236,6 +237,7 @@ class Editor extends React.Component {
 Editor.propTypes = {
   customizeStyles: PropTypes.string,
   onCancel: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
 };
 
 Editor.defaultProps = {
@@ -244,6 +246,7 @@ Editor.defaultProps = {
 
 const mapDispatchToProps = dispatch => ({
   onCancel: () => dispatch(actions.cancelEditing()),
+  onSave: data => dispatch(actions.saveEntryStart(data)),
 });
 
 export default connect(null, mapDispatchToProps)(Editor);
