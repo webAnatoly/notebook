@@ -13,8 +13,10 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      symbolInputtedInContentField: false,
+      symbolInputtedInTitle: false,
+      symbolInputtedInContent: false,
       showSaveButton: false,
+      focusOnTitle: false,
     };
     this.inputRef = React.createRef(); // для автофокуса на блоке ввода текста
   }
@@ -26,31 +28,66 @@ class Editor extends React.Component {
   }
 
   componentDidUpdate() {
-    this.inputRef.current.focus();
-    this.cursorToTheEndOfString();
-    console.log('DidUpdate');
+    const { focusOnTitle } = this.state;
+    if (!focusOnTitle) {
+      this.inputRef.current.focus();
+      this.cursorToTheEndOfString();
+    }
   }
 
-  onInputHandlerContentField = (event) => {
-    const { symbolInputtedInContentField, showSaveButton } = this.state;
+  onBlurHandlerTitle = () => {
+    this.setState({ focusOnTitle: false });
+  }
+
+  onInputHandlerTitle = (event) => {
+    const {
+      symbolInputtedInContent,
+      symbolInputtedInTitle,
+      showSaveButton,
+      focusOnTitle,
+    } = this.state;
+
+    if (!focusOnTitle) {
+      this.setState({ focusOnTitle: true });
+    }
+
     // Показать кнопку "Save", когда пользователь начал вводить текст
-    if (event.target.textContent.length > 0 && symbolInputtedInContentField === false) {
-      this.setState({ symbolInputtedInContentField: true, showSaveButton: true });
+    if (event.target.value.length > 0 && symbolInputtedInTitle === false) {
+      this.setState({ symbolInputtedInTitle: true, showSaveButton: true });
     }
-    // Деактивировать кнопку "Save", если пользователь стер весь текст
-    if (event.target.textContent.length === 0 && showSaveButton === true) {
-      this.setState({ symbolInputtedInContentField: false, showSaveButton: false });
+
+    // Обновить state после того как пользователь стер текст
+    if (event.target.value.length === 0 && symbolInputtedInContent === true) {
+      this.setState({ symbolInputtedInContent: false });
     }
-    /* Получить поле "Название заметки" и через innerHTML выводить то,
-    что юзер печатает в саму заметку, но не больше 50 символов. */
-    if (event.target.textContent.length < 50) {
-      const title = document.querySelector(`.${css.Editor_divAsInput_title}`);
-      title.innerHTML = event.target.textContent;
+    if (event.target.value.length === 0 && symbolInputtedInTitle === true) {
+      this.setState({ symbolInputtedInTitle: false });
+    }
+
+    // Деактивировать кнопку "Save", если пользователь стер весь текст во всех полях
+    if (event.target.value.length === 0 && showSaveButton === true
+      && symbolInputtedInContent === false) {
+      this.setState({ showSaveButton: false });
     }
   }
 
-  onInputHandlerTitleField = () => {
-    console.log('onInputHandlerTitleField');
+  onInputHandlerContent = (event) => {
+    const { symbolInputtedInContent, symbolInputtedInTitle, showSaveButton } = this.state;
+    // Показать кнопку "Save", когда пользователь начал вводить текст
+    if (event.target.textContent.length > 0 && symbolInputtedInContent === false) {
+      this.setState({ symbolInputtedInContent: true, showSaveButton: true });
+    }
+
+    // Обновить state после того как пользователь стер текст
+    if (event.target.textContent.length === 0 && symbolInputtedInContent === true) {
+      this.setState({ symbolInputtedInContent: false });
+    }
+
+    // Деактивировать кнопку "Save", если пользователь стер весь текст во всех полях
+    if (event.target.textContent.length === 0 && showSaveButton === true
+      && symbolInputtedInTitle === false) {
+      this.setState({ showSaveButton: false });
+    }
   }
 
   execCommand = (commandName) => {
@@ -122,18 +159,18 @@ class Editor extends React.Component {
         {/* [TO DO] Если юзер не ввел название заметки, то в момент сохранения заметки,
         если название заметки равно нулю, в качестве названия брать первые 50 символов
         из текста основной заметки */}
-        <div
-          className={css.Editor_divAsInput_title}
-          contentEditable
-          onInput={this.onInputHandlerTitleField}
+        <input
+          className={css.input_title}
+          onInput={this.onInputHandlerTitle}
+          onBlur={this.onBlurHandlerTitle}
         />
         <DecorLine customizeStyles={css.decorLine} />
         <div
-          className={css.Editor_divAsInput_content}
+          className={css.input_content}
           contentEditable
           ref={this.inputRef}
           // dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
-          onInput={event => this.onInputHandlerContentField(event)}
+          onInput={event => this.onInputHandlerContent(event)}
         />
         <div className={css.Editor_bottomMenu}>
           <SmallButton

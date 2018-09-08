@@ -77,25 +77,28 @@
 .btn_strikeThrough { text-decoration:line-through; }
 
 /* поля ввода названия и текста заметки */
-.Editor_divAsInput_title,
-.Editor_divAsInput_content {
+.input_title,
+.input_content {
   width: 100%;
   font-size: 1.2rem;
   background-color: #eef1f7;
 }
 
-.Editor_divAsInput_title:focus,
-.Editor_divAsInput_content:focus {
+.input_title:focus,
+.input_content:focus {
   border: 0;
   outline: 0;
 }
-.Editor_divAsInput_title {
+.input_title {
   /* [TO DO] ограничить длину названия заметки */
   min-height: 30px;
   font-weight: 700;
+  color: #78829d;
   padding: 5px 10px;
+  border: 0;
+  outline: 0;
 }
-.Editor_divAsInput_content {
+.input_content {
   min-height: 200px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
