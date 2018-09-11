@@ -18,7 +18,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFullNote: false,
       isLeftSidebarVisible: false,
       isShiftMenu: false,
     };
@@ -36,10 +35,6 @@ class App extends React.Component {
     })));
   }
 
-  handleDoubleClickOnSmallNote = () => {
-    this.setState({ isFullNote: true });
-  }
-
   showLeftSidebar = () => {
     this.setState(prevState => ({ isLeftSidebarVisible: !prevState.isLeftSidebarVisible }));
   }
@@ -50,10 +45,9 @@ class App extends React.Component {
 
   render() {
     const {
-      isFullNote,
       isShiftMenu,
     } = this.state;
-    const { onAddNoteClicked } = this.props;
+    const { onAddNoteClicked, onBrowseAllEntriesClicked } = this.props;
     return (
       <div className={css.App}>
         <Nav customizeStyles={css.Nav_Top}>
@@ -63,14 +57,14 @@ class App extends React.Component {
         <div className={css.Wrapper_mainArea}>
           <div className={css.topRow}>
             <Button customizeStyles={css.mobileAddEntryButton} htmlType="button" clickHandler={onAddNoteClicked}>add note</Button>
-            <Button customizeStyles={css.browseAllEntriesButton} htmlType="button">browse all your entries</Button>
+            <Button customizeStyles={css.browseAllEntriesButton} htmlType="button" clickHandler={onBrowseAllEntriesClicked}>browse all your entries</Button>
           </div>
           <div className={css.secondRow}>
             <Menu shiftMenuHandler={this.handleClickMobileSearchIcon} isShiftMenu={isShiftMenu} />
             <Search isShiftMenu={isShiftMenu} />
           </div>
           <Workspace customizeStyles={css.Workspace_mainWorkspace}>
-            <ShowNotes isFullNote={isFullNote} showFullNote={this.handleDoubleClickOnSmallNote} />
+            <ShowNotes />
           </Workspace>
         </div>
         <Nav customizeStyles={css.Nav_Bottom} />
@@ -89,6 +83,7 @@ App.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   onAddNoteClicked: () => dispatch(actions.editEntry()),
+  onBrowseAllEntriesClicked: () => dispatch(actions.browseAllEntries()),
 });
 
 export default connect(null, mapDispatchToProps)(App);

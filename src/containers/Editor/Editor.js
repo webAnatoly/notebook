@@ -149,12 +149,25 @@ class Editor extends React.Component {
     event.preventDefault();
     // пока что буду сохранять заметки в редактовский стор
     // после сохранения затемнить кнопку "Save"
-    onSave({ title: 'test', content: 'Lorem ipsum dolor sit amet consectetur adipisicing' });
+    // получить title и content сохраняемой заметки
+    const title = event.target.querySelector(`.${css.input_title}`).value;
+    const content = event.target.querySelector(`.${css.input_content}`).innerHTML;
+    onSave({
+      title,
+      content,
+      changeDate: Date.now(),
+    });
   }
 
   render() {
-    const { customizeStyles, onCancel, onSave } = this.props;
+    const {
+      customizeStyles,
+      onCancel,
+      onSave,
+      oldEntry,
+    } = this.props;
     const { showSaveButton, titleValue, textAsInnerHtml } = this.state;
+    let dataOfOldEntry = {};
     const cssClasses = [
       css.Editor,
       customizeStyles, /* необязательные стили позиционирования,
@@ -164,6 +177,12 @@ class Editor extends React.Component {
       css.bottomMenuButton,
       showSaveButton ? '' : css.bottomMenuButton_disabled, // css класс отвечающий за деактивацию кнопки
     ];
+    if (oldEntry) {
+      /* oldEntry это объект содержащий данные старой заметки.
+      т.е. когда юзер кликает по уже существующей заметке, чтобы её отредактировать
+      в oldEnty попадают текст этой заметки и прочии данные (дата создания и т.д. */
+      dataOfOldEntry = { ...oldEntry };
+    }
     return (
       <form className={cssClasses.join(' ')} onSubmit={event => this.onSubmitHandler(event, onSave)}>
         <div className={css.Editor_topMenu}>
@@ -204,14 +223,17 @@ class Editor extends React.Component {
           className={css.input_title}
           onInput={this.onInputHandlerTitle}
           onBlur={this.onBlurHandlerTitle}
-          defaultValue={titleValue}
+          defaultValue={dataOfOldEntry.title ? dataOfOldEntry.title : titleValue}
         />
         <DecorLine customizeStyles={css.decorLine} />
         <div
           className={css.input_content}
           contentEditable
           ref={this.inputRef}
-          dangerouslySetInnerHTML={{ __html: textAsInnerHtml }}
+          /* eslint-disable react/no-danger */
+          dangerouslySetInnerHTML={{
+            __html: dataOfOldEntry.content ? dataOfOldEntry.content : textAsInnerHtml,
+          }}
           onInput={event => this.onInputHandlerContent(event)}
         />
         <div className={css.Editor_bottomMenu}>
@@ -238,10 +260,12 @@ Editor.propTypes = {
   customizeStyles: PropTypes.string,
   onCancel: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  oldEntry: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
 };
 
 Editor.defaultProps = {
   customizeStyles: '',
+  oldEntry: false,
 };
 
 const mapDispatchToProps = dispatch => ({
