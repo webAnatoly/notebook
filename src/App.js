@@ -75,6 +75,7 @@ class App extends React.Component {
 
 App.propTypes = {
   onAddNoteClicked: PropTypes.func.isRequired,
+  onBrowseAllEntriesClicked: PropTypes.func.isRequired,
 };
 
 // App.defaultProps = {

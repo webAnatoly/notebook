@@ -41,7 +41,11 @@ const Note = ({
         с многоточием на конче */}
         <div className={styles.title}>{title}</div>
         <DecorLine customizeStyles={styles.decorLine} />
-        <div>{children}</div>
+        <div
+          /* Здесь используется innerHTML потому что получаемый текст может быть отформатирован
+          в редакторе. Форматирование в редакторе осуществляется через document.execCommand */
+          dangerouslySetInnerHTML={{ __html: children }}
+        />
       </div>
     </div>
   );

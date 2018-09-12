@@ -27,19 +27,19 @@ const ShowNotes = ({
       <Editor />
     );
   } else {
-    result = Object.entries(notes).map(note => (
+    result = Object.keys(notes).map(key => (
       <Note
-        key={note[0]} // ключ заметки это результат вызова Date.now();
+        key={key} // ключ заметки это результат вызова Date.now();
         showFullNote={() => showFullNote({
-          title: note[1].title,
-          content: note[1].content,
-          createDate: note[0],
-          changeDate: note[1].changeDate,
+          title: notes[key].title,
+          content: notes[key].content,
+          createDate: notes[key].createDate,
+          changeDate: notes[key].changeDate,
         })}
         customizeStyles={css.Node_Small}
-        title={note[1].title}
+        title={notes[key].title}
       >
-        {note[1].content}
+        {notes[key].content}
       </Note>
     ));
 
