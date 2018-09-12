@@ -89,6 +89,10 @@
   align-items: center;
 }
 
+.browseAllEntriesButton:hover {
+  cursor: pointer;
+}
+
 /* Стили для настольного ПК */
 @media (min-width: 769px) {
   .App {
